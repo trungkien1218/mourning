@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        header .container{
+            display: flex;
+           
+        }
+        .container{
+            display: block;
+            max-width: 1440px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 40px;
+          justify-content: space-between;
+            align-items: center;
+        }
+        header{
+            padding: 16px 0;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;;
+
+        }
+        header .main-nav ul{
+            list-style: none;
+            display: flex;
+        }
+        header a{
+            text-decoration: none;
+            color: black;
+        }
+        .container-1{
+            display: block;
+            max-width: 1440px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 40px;
+            padding-right: 40px;
+            align-items: center;
+        }
+        main .row{
+            display: flex;
+            height: 660px;
+            
+            gap: 20px;
+            
+            
+        }
+        .col-5{
+            flex: 0 0 41.67%;
+            max-width: 41.67%;
+            padding: 0 20px;
+            
+           
+        }
+        .col-7{
+            flex: 0 0 57.47%;
+            max-width: 57.47%;
+            padding: 0 20px;
+            
+            
+           
+        }
+        .col-6{
+            flex: 0 0 50%;
+            max-width: 50%;
+            padding: 0 20px;
+            padding-left: 30px;
+        }
+        main img{
+            background: gray center no-repeat;
+            background-size: cover;
+
+        }
+        .col-5  {
+          background: #eeeff1 center no-repeat;
+          background-size: cover;
+          
+          background-image: url(images/home_banner.webp);
+        }
+        .right-top{
+        background: #eeeff1 center no-repeat;
+          background-size: cover;
+          background-image: url(images/home_banner1.jpg);
+          height: 365px;
+          padding-bottom: 30px;
+          width: 100%;
+        }
+        .right-bottom-1{
+        background: #eeeff1 center no-repeat;
+          background-size: cover;
+          background-image: url(images/anh_left.jpg.png);
+          
+        }
+        .right-bottom-2{
+        background: #eeeff1 center no-repeat;
+          background-size: cover;
+          background-image: url(images/anh_right.jpg.png);
+          width: 220px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+            
+                <a href="index.html">Lam Flower</a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">Trang chủ</a></li>
+                    <li><a href="#">Sản phẩm</a></li>
+                    <li><a href="#">Giỏ hoa</a></li>
+                    <li><a href="#">Instagram</a></li>
+                </ul>
+            </nav>
+            <div>
+              <input type="text">
+            </div>
+
+        </div>
+
+    </header>
+    <main>
+        <div class="container-1">
+           <div class="row">
+            <div class="col-5">
+                <a href="#"></a>
+            </div>
+            <div class="col-7">
+              <div class="right-top"></div>
+                <div style="display: flex; height: 297px; padding-top: 40px;">
+                    <div class="col-6 right-bottom-1"></div>
+                    <div class="col-6 right-bottom-2"></div>
+                
+                    
+
+                </div>
+            </div>
+           </div>
+        </div>
+    </main>
+</body>
+</html>
