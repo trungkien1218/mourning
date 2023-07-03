@@ -45,6 +45,11 @@
             text-decoration: none;
             color: black;
         }
+
+        header a img {
+            width: 100%;
+        }
+
         header{
             padding-top: 40px;
             padding-bottom: 30px;
@@ -55,22 +60,25 @@
             background: #eeeff1 center no-repeat;
           background-size: cover;
           background-image: url(images/Group\ 6.jpg);
-          height: 600px;
+          height: 650px;
           width: 1150px;  
           margin-left: 70px;
+          max-width: 100%;
         }
+        @media{min-width: ;}
+        
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <div class="logo">
+            
                  
-                <a href="index.html"><img src="images/Lam Flower.png" alt=""></a>
-            </div>
+                <a href="index.html" style="display: block; max-width: 250px;"><img src="images/Lam Flower.svg" alt=""></a>
+            
             <nav class="main-nav">
                 <ul>
-                    <li style="background-color: rgb(56 137 213); "><a href="#" style="color:#fff ; font-weight: 700; ">Trang chủ</a></li>
+                    <li ><a href="#" >Trang chủ</a></li>
                     <li><a href="#">Sản phẩm</a></li>
                     <li><a href="#">Giỏ hoa</a></li>
                     <li><a href="#">Instagram</a></li>
@@ -88,7 +96,10 @@
            </div>
         </div>
         <div class="">
-
+            <h1>Trao </h1>
+        </div>
+        <div>
+            <h1></h1>
         </div>
     </main>
 </body>
