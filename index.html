@@ -28,16 +28,27 @@
         }
         header{
             padding: 16px 0;
-            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;;
-
+            
         }
         header .main-nav ul{
             list-style: none;
             display: flex;
         }
+        header .main-nav ul li{
+            padding-right: 30px;
+            padding-left: 30px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-radius: 5px;
+        }
         header a{
             text-decoration: none;
             color: black;
+        }
+        header{
+            padding-top: 40px;
+            padding-bottom: 30px;
+            margin-bottom: 70px;
         }
         .container-1{
             display: block;
@@ -50,26 +61,18 @@
         }
         main .row{
             display: flex;
-            height: 660px;
-            
-            gap: 20px;
-            
-            
+            height: 660px; 
+            gap: 20px; 
         }
         .col-5{
             flex: 0 0 41.67%;
             max-width: 41.67%;
-            padding: 0 20px;
-            
-           
+            padding: 0 20px;  
         }
         .col-7{
             flex: 0 0 57.47%;
             max-width: 57.47%;
             padding: 0 20px;
-            
-            
-           
         }
         .col-6{
             flex: 0 0 50%;
@@ -86,7 +89,7 @@
           background: #eeeff1 center no-repeat;
           background-size: cover;
           
-          background-image: url(images/home_banner.webp);
+          background-image: url(images/2.webp);
         }
         .right-top{
         background: #eeeff1 center no-repeat;
@@ -114,20 +117,18 @@
     <header>
         <div class="container">
             <div class="logo">
-            
-                <a href="index.html">Lam Flower</a>
+                 
+                <a href="index.html"><img src="images/Lam Flower.png" alt=""></a>
             </div>
             <nav class="main-nav">
                 <ul>
-                    <li><a href="#">Trang chủ</a></li>
+                    <li style="background-color: rgb(56 137 213); "><a href="#" style="color:#fff ; font-weight: 700; ">Trang chủ</a></li>
                     <li><a href="#">Sản phẩm</a></li>
                     <li><a href="#">Giỏ hoa</a></li>
                     <li><a href="#">Instagram</a></li>
                 </ul>
             </nav>
-            <div>
-              <input type="text">
-            </div>
+            
 
         </div>
 
@@ -140,9 +141,9 @@
             </div>
             <div class="col-7">
               <div class="right-top"></div>
-                <div style="display: flex; height: 297px; padding-top: 40px;">
-                    <div class="col-6 right-bottom-1"></div>
-                    <div class="col-6 right-bottom-2"></div>
+                <div style="display: grid; grid-template: auto/ 50% 50%; grid-gap: 30px;">
+                    <div class=" right-bottom-1"></div>
+                    <div class=" right-bottom-2"></div>
                 
                     
 
