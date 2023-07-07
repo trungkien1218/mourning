@@ -29,7 +29,7 @@ async function render_flower(params) {
         </a>
      </div>
         `;
-        document.querySelector('.sanpham').appendChild('div');
+        document.querySelector('.sanpham').appendChild(div);
     }
 }
  async function fetch_data(params){
