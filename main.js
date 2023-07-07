@@ -16,7 +16,21 @@ let get_flower ={
     }
 } 
 async function render_flower(params) {
-    console.log(params)
+    for (let flower of params){
+        let {name, price, image} = flower;
+        let div = document.createElement('div');
+        div.classList.add('product');
+        div.innerHTML = `
+        <div class="product">
+        <a href="#">
+           <div class="image" style="background-image: url(${image});"></div>
+           <p class="name">${name}</p>
+           <p class="price">${price}</p>
+        </a>
+     </div>
+        `;
+        document.querySelector('.sanpham').appendChild('div');
+    }
 }
  async function fetch_data(params){
     if (!params){

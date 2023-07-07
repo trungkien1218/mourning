@@ -47,18 +47,11 @@ header{
     margin-bottom: 70px;
 }
 nav.main-nav{display: none;}
-main .image-2{
-    background: #eeeff1 center no-repeat;
-  background-size: cover;
-  background-image: url(images/Group\ 9.jpg);
-  padding-top:56.25%;
-  max-width: 100%;
-  display: none;
-}
+
 main .image-1{
     background: #eeeff1 center no-repeat;
   background-size: cover;
-  background-image: url(images/Group\ 5.jpg);
+  background-image: url(images/Group\ 9.jpg);
   padding-top:56.25%;
   max-width: 100%;
   display: block;
@@ -67,16 +60,16 @@ main .image-1{
     text-align: center;
     padding-top: 80px;
 }
-.item{
+.product{
     display: grid;
     grid-template: auto / repeat(3 , 1fr);
     grid-gap:20px
 }
-.item a{
+.product a{
     text-decoration: none;
     color: black;
 }
-.item .ime{
+.product .image{
     padding-top:100% ;
     border-radius: 12px;
     background: #f4f4f4 no-repeat center;
@@ -89,13 +82,10 @@ main .image-1{
         max-width: 500px;
     }
     header .main-nav{
-        display: none;
-    }
-    header main .image-1{
-        display: none;
-    }
-    header main .image-2{
         display: block;
+    }
+    main .image-1{
+        background-image: url(images/Group\ 5.jpg);
     }
 }
 @media(min-width:769px){
