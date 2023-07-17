@@ -87,6 +87,11 @@ main .image-1{
     grid-template: auto / repeat(2 , 1fr);
     grid-gap:20px
 }
+.name{
+    font-size: 25px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
 
 
 @media(min-width: 768px){
