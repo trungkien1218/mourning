@@ -92,6 +92,16 @@ main .image-1{
     margin-top: 10px;
     margin-bottom: 15px;
 }
+.price{
+    font-weight: 600;
+}
+.thir{
+    margin-top: 200px;
+}
+footer a{
+    text-decoration: none;
+    color: white;
+}
 
 
 @media(min-width: 768px){
