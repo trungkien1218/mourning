@@ -25,12 +25,15 @@ async function render_flower(params) {
         <a href="product-detail.html">
            <div class="image" style="background-image: url(${image});"></div>
            <p class="name">${name}</p>
-           <p class="price">${price} VND</p>
+           
         </a>
+        <p class="price">${price.toLocaleString('vi-VN')} VND</p>
     
         `;
-        
-        document.querySelector('.sanpham').appendChild(div);
+        if( document.querySelector('.home-page ')){
+            document.querySelector('.home-page .sanpham').appendChild(div);
+        }
+      
         div.addEventListener('click', function(){
             localStorage.setItem('prd_id', id);
 
@@ -86,20 +89,20 @@ async function render_flower_prd(params) {
         div.classList.add('item-prd');
         div.innerHTML = `
         
-        <div class="image-prd">
-            ${image}
-        </div>
-        <div class="product">
-            <p class="name-pr">${name}</p>
-            <p class="price-pr">${price}</p>
-
-        </div>
+        <div class="prd-img">${image}</div>
+            <div class="prd-name-price">
+                <div class="prd-name">${name}</div>
+                <div class="prd-price"${price.toLocaleString('vi-VN')}</div>
+            </div>
  
         
        
     
         `;
-        document.querySelector('.grid').appendChild(div);
+        if( document.querySelector('.product-detail ')){
+            document.querySelector('.product-detail .prd-g').appendChild(div);
+        }
+        
        
     }
 }

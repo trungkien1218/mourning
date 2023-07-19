@@ -44,7 +44,7 @@ header a img {
 header{
     padding-top: 40px;
     padding-bottom: 30px;
-    margin-bottom: 70px;
+    margin-bottom: 10px;
 }
 nav.main-nav{display: none;}
 
@@ -63,7 +63,7 @@ main .image-1{
 .sanpham{
     display: grid;
     grid-template: auto / repeat(4 , 1fr);
-    grid-gap:20px
+    grid-gap:30px
 }
 .item a{
     text-decoration: none;
@@ -88,13 +88,12 @@ main .image-1{
     grid-gap:20px
 }
 .name{
-    font-size: 25px;
+    font-size: 20px;
     margin-top: 10px;
-    margin-bottom: 15px;
-}
-.price{
+    margin-bottom: 8px;
     font-weight: 600;
 }
+
 .thir{
     margin-top: 200px;
 }
@@ -102,7 +101,41 @@ footer a{
     text-decoration: none;
     color: white;
 }
+.grid-1{
+    display: grid;
+    grid-template:auto /repeat(3, 1fr) ;
+    gap: 30px;
+}
+.color-gray{
+    color: rgb(170, 170, 170);
+}
+.info p{
+    padding-bottom:20px ;
+}
+.cs p{
+    padding-bottom:20px ;
+}
+/* pruduct-detail*/
+.prd-g{
+    display: grid;
+    grid-template:auto / repeat(2, 1fr) ;
+    gap: 20px;
+}
+.prd-img{
+    padding-top:56.25%;
+    border-radius: 12px;
+    background: #f4f4f4 no-repeat center;
+    background-size: cover;
 
+}
+.prd-name{
+    font-size: 35px;
+    font-weight: 600;
+    padding-bottom: 20px;
+}
+.prd-price{
+    font-size: 15px;
+}
 
 @media(min-width: 768px){
     .container{
