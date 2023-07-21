@@ -83,28 +83,50 @@ let get_flower_by_id ={
 
 
 async function render_flower_prd(params) {
-    for (let flower of params){
-        let {name, price, image} = flower;
+    
+        let {name, price, image} = params;
+        let quantity= 1;
         let div = document.createElement('div');
         div.classList.add('item-prd');
         div.innerHTML = `
+        <div class="grid">
+        <div class="prd-img" style="background-image:url(${image})"></div>
         
-        <div class="prd-img">${image}</div>
             <div class="prd-name-price">
                 <div class="prd-name">${name}</div>
-                <div class="prd-price"${price.toLocaleString('vi-VN')}</div>
+                
+                <div class="prd-price">${price.toLocaleString('vi-VN')}VND</div>
+
+                Số lượng: <button class="decrease"><i class="fa-solid fa-minus color"></i></button> <span class="quantity">${quantity}</span> <button class="increase"> <i class="fa-solid fa-plus color"></i> </button> 
             </div>
- 
+
+        </div>
+        
+
+        `;
+        if( document.querySelector('.product-detail ')){
+            document.querySelector('.product-detail .container').appendChild(div);
+        }
+        // nút thêm giảm số lượng giở hàng
+        div.querySelector('.increase').addEventListener('click',function(){
+            update_cart_quantity({
+                type: 'increase',
+                parent_dom:div,
+                key:k
+            });
+        });
+          
+      
+        div.querySelector('.decrease').addEventListener('click',function(){
+            update_cart_quantity({
+                type: 'decrease',
+                parent_dom:div,
+                key:k
+            });
+        });
         
        
     
-        `;
-        if( document.querySelector('.product-detail ')){
-            document.querySelector('.product-detail .prd-g').appendChild(div);
-        }
-        
-       
-    }
 }
 fetch_data(get_flower_by_id);
 
