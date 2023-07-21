@@ -18,6 +18,7 @@ let get_flower ={
 async function render_flower(params) {
     
     params.map(function(flower, index){
+        
         let {name, price, image, id} = flower;
         let div = document.createElement('div');
         div.classList.add('item');
@@ -36,13 +37,16 @@ async function render_flower(params) {
             document.querySelector('.home-page .sanpham').appendChild(div);
         }}
         
+        if( document.querySelector('.product-page ')){
+            document.querySelector('.product-page .prd-page').appendChild(div);
+        }
       
         div.addEventListener('click', function(){
             localStorage.setItem('prd_id', id);
+          })
+    })
+    }
 
-        })
-    }) 
-}
 
  async function fetch_data(params){
     if (!params){
@@ -89,11 +93,11 @@ async function render_flower_prd(params) {
     
         let {name, price, image} = params;
 
-
         let div = document.createElement('div');
         div.classList.add('item-prd');
         div.innerHTML = `
-
+        
+        
         
 
         <div class="prd-img" style="background-image:url(${image})"></div>
@@ -108,17 +112,22 @@ async function render_flower_prd(params) {
                 <div class="buy">Mua hàng</div>
 
             </div>
+
+        
         
 
         `;
         if( document.querySelector('.product-detail ')){
-            document.querySelector('.product-detail .container').appendChild(div);
-        }
-        // nút thêm giảm số lượng giở hàng
-        
-        if( document.querySelector('.product-detail ')){
             document.querySelector('.product-detail .prd-g').appendChild(div);
         }
+        // nút thêm giảm số lượng giở hàng
+
+        
+       
+    
+
+        
+        
         
         let number= 1;
         let span = document.querySelector('span');
@@ -138,7 +147,6 @@ async function render_flower_prd(params) {
         
         });
        
-    
 
 }
 fetch_data(get_flower_by_id);
@@ -146,29 +154,5 @@ fetch_data(get_flower_by_id);
 
 /// product-page/////////////////////////////////////////////////////////////////////////////////////////////
 
-async function render_flower_prd(params) {
-    for (let flower of params){
-        let {name, price, image, id} = flower;
-        let div = document.createElement('div');
-        div.classList.add('item');
-        div.innerHTML = `
-        
-        <a href="product-detail.html">
-           <div class="image" style="background-image: url(${image});"></div>
-           <p class="name">${name}</p>
-           
-        </a>
-        <p class="price">${price.toLocaleString('vi-VN')} VND</p>
-    
-        `;
-        if( document.querySelector('.product-page ')){
-            document.querySelector('.product-page .prd-page').appendChild(div);
-        }
-      
-        div.addEventListener('click', function(){
-            localStorage.setItem('prd_id', id);
 
-        })
-    }
-}fetch_data(get_flower);
 
