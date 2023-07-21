@@ -124,7 +124,7 @@ footer a{
 .item-prd{
     display: grid;
     grid-template: auto / repeat(2 , 1fr);
-    grid-gap:60px
+    grid-gap:200px
 }
 
 .prd-img{
@@ -138,22 +138,25 @@ footer a{
 }
 .prd-name{
     margin-top: 50%;
-    font-size: 35px;
+    font-size: 30px;
     font-weight: 600;
     padding-bottom: 20px;
     margin-top: 50%;
-    color: rgb(43, 137, 243);
+    
 }
 .prd-price{
     font-size: 15px;
     padding-bottom: 20px;
+    font-size: 20px;
 }
 .product-detail button{
     background-color: white;
-    border: 1px solid gray;
+    border: 1px solid white;
     width: 30px; 
     margin-bottom: 50px;
-
+    cursor: pointer;
+    font-size: 25px;
+    color: gray;
 }
 .buy{
    

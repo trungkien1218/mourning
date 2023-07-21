@@ -106,8 +106,9 @@ async function render_flower_prd(params) {
                 <div class="prd-price">${price.toLocaleString('vi-VN')} VND</div>
                 
                 <p style="margin-right:20px; padding-bottom: 20px;"> Số lượng:</p>
+                
                 <button class="tru" style="margin-right:20px;"><i class="fa-solid fa-minus"></i></i></button>
-                <span style="margin-right:20px;">1</span>
+                <span style="margin-right:20px; font-size: 30px">1</span>
                 <button class="cong"><i class="fa-solid fa-plus"></i></button>
                 <div class="buy">Mua hàng</div>
 
