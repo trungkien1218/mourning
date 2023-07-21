@@ -16,7 +16,8 @@ let get_flower ={
     }
 } 
 async function render_flower(params) {
-    for (let flower of params){
+    
+    params.map(function(flower, index){
         let {name, price, image, id} = flower;
         let div = document.createElement('div');
         div.classList.add('item');
@@ -29,16 +30,18 @@ async function render_flower(params) {
         </a>
         <p class="price">${price.toLocaleString('vi-VN')} VND</p>
     
-        `;
-        if( document.querySelector('.home-page ')){
+        `; 
+        if(index <8){
+            if( document.querySelector('.home-page ')){
             document.querySelector('.home-page .sanpham').appendChild(div);
-        }
+        }}
+        
       
         div.addEventListener('click', function(){
             localStorage.setItem('prd_id', id);
 
         })
-    }
+    }) 
 }
 
  async function fetch_data(params){
@@ -85,22 +88,26 @@ let get_flower_by_id ={
 async function render_flower_prd(params) {
     
         let {name, price, image} = params;
-        let quantity= 1;
+
+
         let div = document.createElement('div');
         div.classList.add('item-prd');
         div.innerHTML = `
-        <div class="grid">
-        <div class="prd-img" style="background-image:url(${image})"></div>
+
         
+
+        <div class="prd-img" style="background-image:url(${image})"></div>
             <div class="prd-name-price">
                 <div class="prd-name">${name}</div>
+                <div class="prd-price">${price.toLocaleString('vi-VN')} VND</div>
                 
-                <div class="prd-price">${price.toLocaleString('vi-VN')}VND</div>
+                <p style="margin-right:20px; padding-bottom: 20px;"> Số lượng:</p>
+                <button class="tru" style="margin-right:20px;"><i class="fa-solid fa-minus"></i></i></button>
+                <span style="margin-right:20px;">1</span>
+                <button class="cong"><i class="fa-solid fa-plus"></i></button>
+                <div class="buy">Mua hàng</div>
 
-                Số lượng: <button class="decrease"><i class="fa-solid fa-minus color"></i></button> <span class="quantity">${quantity}</span> <button class="increase"> <i class="fa-solid fa-plus color"></i> </button> 
             </div>
-
-        </div>
         
 
         `;
@@ -108,40 +115,60 @@ async function render_flower_prd(params) {
             document.querySelector('.product-detail .container').appendChild(div);
         }
         // nút thêm giảm số lượng giở hàng
-        div.querySelector('.increase').addEventListener('click',function(){
-            update_cart_quantity({
-                type: 'increase',
-                parent_dom:div,
-                key:k
-            });
-        });
-          
-      
-        div.querySelector('.decrease').addEventListener('click',function(){
-            update_cart_quantity({
-                type: 'decrease',
-                parent_dom:div,
-                key:k
-            });
+        
+        if( document.querySelector('.product-detail ')){
+            document.querySelector('.product-detail .prd-g').appendChild(div);
+        }
+        
+        let number= 1;
+        let span = document.querySelector('span');
+        
+        
+        let truBtn = document.querySelector('.tru');
+        truBtn.addEventListener('click', function(){
+            number = number - 1;
+            span.innerHTML = number;
+        
         });
         
+        let congBtn = document.querySelector('.cong');
+        congBtn.addEventListener('click', function(){
+            number = number + 1;
+            span.innerHTML = number;
+        
+        });
        
     
+
 }
 fetch_data(get_flower_by_id);
 
 
-//if( prd_id === '') return false;
-/*
-//let prd_id= '';
-//if (localStorage.getItem('prd_id')) prd_id = localStorage.getItem('prd_id');
-//if( prd_id === '') return false;
-async function fetch_data_by_id(){
-    let res = await fetch('https://6487093ebeba6297278fbab7.mockapi.io/flower' + 'prd_id');
-    let data = await res.json();
-    await console.log(data);
+/// product-page/////////////////////////////////////////////////////////////////////////////////////////////
 
-}
-fetch_data_by_id();
-*/
+async function render_flower_prd(params) {
+    for (let flower of params){
+        let {name, price, image, id} = flower;
+        let div = document.createElement('div');
+        div.classList.add('item');
+        div.innerHTML = `
+        
+        <a href="product-detail.html">
+           <div class="image" style="background-image: url(${image});"></div>
+           <p class="name">${name}</p>
+           
+        </a>
+        <p class="price">${price.toLocaleString('vi-VN')} VND</p>
+    
+        `;
+        if( document.querySelector('.product-page ')){
+            document.querySelector('.product-page .prd-page').appendChild(div);
+        }
+      
+        div.addEventListener('click', function(){
+            localStorage.setItem('prd_id', id);
+
+        })
+    }
+}fetch_data(get_flower);
 
