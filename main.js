@@ -110,7 +110,7 @@ async function render_flower_prd(params) {
                 <button class="tru" style="margin-right:20px;"><i class="fa-solid fa-minus"></i></i></button>
                 <span style="margin-right:20px; font-size: 30px">1</span>
                 <button class="cong"><i class="fa-solid fa-plus"></i></button>
-                <div class="buy">Mua hàng</div>
+                <div><a href="cart.html"><button class="buy">Mua hàng</button></a></div>
 
             </div>
 
@@ -119,17 +119,14 @@ async function render_flower_prd(params) {
 
         `;
         if( document.querySelector('.product-detail ')){
-            document.querySelector('.product-detail .prd-g').appendChild(div);
-        }
+            document.querySelector('.product-detail .container').appendChild(div);
+        };
+
+
+
+
+
         // nút thêm giảm số lượng giở hàng
-
-        
-       
-    
-
-        
-        
-        
         let number= 1;
         let span = document.querySelector('span');
         
@@ -147,13 +144,31 @@ async function render_flower_prd(params) {
             span.innerHTML = number;
         
         });
+        
+        /// lưu vào localstorage
+        div.addEventListener('click', function(){
+            localStorage.setItem('cart_id', id);
+          });
+
+
        
 
 }
 fetch_data(get_flower_by_id);
 
 
-/// product-page/////////////////////////////////////////////////////////////////////////////////////////////
+/// cart-page/////////////////////////////////////////////////////////////////////////////////////////////
+let cart_id= '';
+if (localStorage.getItem('cart_id')) prd_id = localStorage.getItem('cart_id');
 
+let get_flower_cart_by_id ={
+    api_url: api_url,
+    end_point: end_point. flower +'/'+ localStorage.getItem('cart_id'),
+    method: 'GET',
+     async callback(params){
+        await render_flower_prd(params)
+   
+    }
+} 
 
 

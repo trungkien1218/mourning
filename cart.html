@@ -19,11 +19,11 @@
                 <ul>
                     <li ><a href="index.html" >Trang chủ</a></li>
 
-                    <li><a href="product.html"style="color: rgb(43, 137, 243);" >Sản phẩm</a></li>
+                    <li><a href="product.html" >Sản phẩm</a></li>
      
                     <li><a href="#">Instagram </a></li>
 
-                    <li><a href="#">Giỏ hoa</a></li>
+                    <li><a href="cart.html" style="color: rgb(43, 137, 243);">Giỏ hoa</a></li>
                 </ul>
             </nav>
             
@@ -31,20 +31,37 @@
         </div>
 
     </header>
-    <main class="product-detail">
-        <div class="container">
-            <div class="prd-g">
-
-           
+    <main class="cart-page">
+        <div class="container"> 
+            <div class="cart">
+                <div class="cart-dom">
+                    <div class="cart-img"></div>
+                    <div class="cart-name-price">
+                        <div class="cart-name">tên hoa</div>
+                        <div class="cart-price">100000vnd</div>
+                    </div>
+                    
+                   
+                   <nav class="nav-quantity">
+                      <ul>
+                          <li><button class="tru" ><i class="fa-solid fa-minus"></i></i></button></li>
+    
+                          <li><span>1</span></li>
+            
+                          <li><button class="cong"><i class="fa-solid fa-plus"></i></button></li>
+                      </ul>
+                  </nav>
+                </div>
             </div>
-           
+
+            
         </div>
         
 
 
         
 
-
+    </main>
         <footer style="background-color: rgb(55, 56, 57); margin-top: 200px; height: 500px;">
             <section class="grid-1 container" style="color: white; padding-top: 200px;">
                 <div>
@@ -74,7 +91,7 @@
                 </div>
             </section>
         </footer>
-    </main>
+    
     <script src="main.js"></script>
 </body>
 </html>
