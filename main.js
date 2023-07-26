@@ -152,6 +152,24 @@ async function render_flower_prd(params) {
         div.addEventListener('click', function(){
             localStorage.setItem('cart_id', id);
           });
+          div.querySelector('.buy').addEventListener('click', function(){
+            let key=name;
+            if (cart[key]){
+                cart[key].quantity += number;
+                cart[key].total_price= cart[key].quantity * cart[key].price;
+            }
+            ///chỗ này gọi tên cho mấy tk cart[key] để lưu vào localstorage
+            else{
+                cart[key] = {
+                    quantity : number,
+                    name: name,
+                    price: price,
+                    total_price: price
+
+                }
+            }
+            localStorage.setItem('cart_id', JSON.stringify(cart));
+          });
 
 
        
@@ -164,6 +182,9 @@ fetch_data(get_flower_by_id);
 let cart_id= '';
 if (localStorage.getItem('cart_id')) prd_id = localStorage.getItem('cart_id');
 
+let cart={};
+
+if(localStorage.getItem('cart_id')) cart = JSON.parse(localStorage.getItem('cart_id'));
 let get_flower_cart_by_id ={
     api_url: api_url,
     end_point: end_point. flower +'/'+ localStorage.getItem('cart_id'),
