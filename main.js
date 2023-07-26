@@ -169,9 +169,23 @@ let get_flower_cart_by_id ={
     end_point: end_point. flower +'/'+ localStorage.getItem('cart_id'),
     method: 'GET',
      async callback(params){
-        await render_flower_prd(params)
+        await render_flower_cart(params)
    
     }
 } 
 
 
+async function render_flower_cart(params) {
+    
+    let {name, price, image} = params;
+
+    let div = document.createElement('div');
+    div.classList.add('cart-dom');
+    div.innerHTML = `
+
+    `;
+    if( document.querySelector('.cart-page ')){
+        document.querySelector('.cart-page .container').appendChild(div);
+
+    };
+}
