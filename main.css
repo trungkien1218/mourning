@@ -115,21 +115,21 @@ footer a{
 .cs p{
     padding-bottom:20px ;
 }
-/* pruduct-detail*/
 
- 
+/* pruduct-detaillllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll*/
+
 
 .item-prd{
     display: grid;
     grid-template: auto / repeat(2 , 1fr);
-    grid-gap:40px;
+    grid-gap: 40px;
     max-width: 70%;
+
+   
 }
 
 .prd-img{
-
     padding-top:    100%;
-
     border-radius: 12px;
     background: #f4f4f4 no-repeat center;
     background-size: cover;

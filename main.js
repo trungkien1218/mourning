@@ -120,7 +120,10 @@ async function render_flower_prd(params) {
         `;
         if( document.querySelector('.product-detail ')){
             document.querySelector('.product-detail .container').appendChild(div);
+
         };
+
+
 
 
 
