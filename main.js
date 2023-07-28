@@ -135,18 +135,24 @@ async function render_flower_prd(params) {
         
         
         let truBtn = document.querySelector('.tru');
-        truBtn.addEventListener('click', function(){
-            number = number - 1;
-            span.innerHTML = number;
-        
-        });
+        if(truBtn){
+            truBtn.addEventListener('click', function(){
+                number = number - 1;
+                span.innerHTML = number;
+            
+            });
+        }
+       
         
         let congBtn = document.querySelector('.cong');
-        congBtn.addEventListener('click', function(){
-            number = number + 1;
-            span.innerHTML = number;
+        if(congBtn){
+            congBtn.addEventListener('click', function(){
+                number = number + 1;
+                span.innerHTML = number;
+            
+            });
+        }
         
-        });
         
         /// lưu vào localstorage
         div.addEventListener('click', function(){
@@ -170,11 +176,10 @@ async function render_flower_prd(params) {
             localStorage.setItem('cart_id', JSON.stringify(cart));
           });
 
-
-       
-
 }
 fetch_data(get_flower_by_id);
+
+
 
 
 /// cart-page/////////////////////////////////////////////////////////////////////////////////////////////
@@ -182,21 +187,12 @@ let cart={};
 
 if(localStorage.getItem('cart_id')) cart = JSON.parse(localStorage.getItem('cart_id'));
 
-let get_flower_cart_by_id ={
-    api_url: api_url,
-    end_point: end_point. flower,
-    method: 'GET',
-     async callback(params){
-        await render_flower_cart(params)
-   
-    }
-} 
 
 
 async function render_flower_cart(params) {
     
-   for(let flower of params){
-    let {name, image, quantity, total_price} = flower;
+   for(let [k,v] of Object.entries(params)){
+    let {name, image, quantity, total_price} = v;
 
     let div = document.createElement('div');
     div.classList.add('cart-dom');
@@ -237,7 +233,9 @@ async function render_flower_cart(params) {
         document.querySelector('.cart-page .container').appendChild(div);
 
     };
-    
    }
 }
-fetch_data(get_flower_cart_by_id);
+if(localStorage.getItem('cart_id')){
+     let L = JSON.parse(localStorage.getItem('cart_id'));
+     render_flower_cart(L)
+}
