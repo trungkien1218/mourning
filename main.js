@@ -156,16 +156,15 @@ async function render_flower_prd(params) {
             let key=name;
             if (cart[key]){
                 cart[key].quantity += number;
-                cart[key].total_price= cart[key].quantity * cart[key].price;
+                cart[key].total_price = cart[key].quantity * cart[key].price;//// cái này là tính tồng tiền của một sản phẩm khi thêm số lượng
             }
             ///chỗ này gọi tên cho mấy tk cart[key] để lưu vào localstorage
             else{
                 cart[key] = {
-                    quantity : number,
+                    quantity : number, ////number này nằm ở phần cộng trừ số lượng sản phẩm
                     name: name,
                     price: price,
-                    total_price: price
-
+                    total_price: price //// cái này là tổng số tiền khi mà thêm số lượng là quantity nhân với giá là price 
                 }
             }
             localStorage.setItem('cart_id', JSON.stringify(cart));
@@ -179,15 +178,13 @@ fetch_data(get_flower_by_id);
 
 
 /// cart-page/////////////////////////////////////////////////////////////////////////////////////////////
-let cart_id= '';
-if (localStorage.getItem('cart_id')) prd_id = localStorage.getItem('cart_id');
-
 let cart={};
 
 if(localStorage.getItem('cart_id')) cart = JSON.parse(localStorage.getItem('cart_id'));
+
 let get_flower_cart_by_id ={
     api_url: api_url,
-    end_point: end_point. flower +'/'+ localStorage.getItem('cart_id'),
+    end_point: end_point. flower,
     method: 'GET',
      async callback(params){
         await render_flower_cart(params)
@@ -198,15 +195,49 @@ let get_flower_cart_by_id ={
 
 async function render_flower_cart(params) {
     
-    let {name, price, image} = params;
+   for(let flower of params){
+    let {name, image, quantity, total_price} = flower;
 
     let div = document.createElement('div');
     div.classList.add('cart-dom');
     div.innerHTML = `
+    <div class="cart">
+                <div class="cart-dom">
+                    <div class="cart-img">${image}</div>
+                    <div class="cart-name-price">
+                        <div class="cart-name">${name}</div>
+                        <div class="cart-price">${total_price.toLocaleString('vi-VN')} VND</div>
+                    </div>
+                    
+                   
+                   <div class="nav-quantity">
+                      
+                          <button class="tru" ><i class="fa-solid fa-minus"></i></i></button>
+    
+                          <span>${quantity}</span>
+            
+                          <button class="cong"><i class="fa-solid fa-plus"></i></button>
+                      
+                   </div>
+                </div>
+                <div>
+                    <p class="text-cart">Người nhận</p>
+                    <input type="text" class="pad-inp">
+                    <p class="text-cart">Số điện thoại </p>
+                    <input type="text" class="pad-inp" >
+                    <p class="text-cart">Địa chỉ nhận hoa</p>
+                    <input type="text" class="pad-inp">
+                </div>
+            </div>
+        </div>
+        
 
     `;
     if( document.querySelector('.cart-page ')){
         document.querySelector('.cart-page .container').appendChild(div);
 
     };
+    
+   }
 }
+fetch_data(get_flower_cart_by_id);
