@@ -111,24 +111,12 @@ async function render_flower_prd(params) {
                 <span style="margin-right:20px; font-size: 30px">1</span>
                 <button class="cong"><i class="fa-solid fa-plus"></i></button>
                 <div><a href="cart.html"><button class="buy">Mua hàng</button></a></div>
-
             </div>
-
-        
-        
-
         `;
         if( document.querySelector('.product-detail ')){
             document.querySelector('.product-detail .container').appendChild(div);
 
         };
-
-
-
-
-
-
-
         // nút thêm giảm số lượng giở hàng
         let number= 1;
         let span = document.querySelector('span');
@@ -185,6 +173,10 @@ fetch_data(get_flower_by_id);
 
 /// cart-page/////////////////////////////////////////////////////////////////////////////////////////////
 let cart={};
+ /// function chuyển định dạng tiền .
+ function format_price(price){
+    return price.toLocaleString('vi-VN');
+}
 
 if(localStorage.getItem('cart_id')) cart = JSON.parse(localStorage.getItem('cart_id'));
 
@@ -203,10 +195,9 @@ async function render_flower_cart(params) {
                     <div class="cart-img" style="background-image:url(${image})"></div>
                     <div class="cart-name-price">
                         <div class="cart-name">${name}</div>
-                        <div class="cart-price">${total_price.toLocaleString('vi-VN')} VND</div>
+                        <div class="cart-price">${format_price(total_price)} VND</div>
                     </div>
                     
-                   
                    <div class="nav-quantity">
                       
                           <button class="tru" ><i class="fa-solid fa-minus"></i></i></button>
@@ -214,20 +205,92 @@ async function render_flower_cart(params) {
                           <span>${quantity}</span>
             
                           <button class="cong"><i class="fa-solid fa-plus"></i></button>
+                          
+                          <button class="delete"><i class="fa-solid fa-trash-can" ></i></button>
                       
                    </div>
+                   
                 </div>
                 
             
 
     `;
+    
     if( document.querySelector('.cart-page ')){
         document.querySelector('.cart-page .container ').appendChild(div);
 
-    };
+    };  
+    /// nút xóa những cái mày đã chọn                
+    div.querySelector('.delete').addEventListener('click', function(){
+        let confirm_delete = confirm(' mày có chắc là muốn xóa ko tk chó?');
+        if( confirm_delete == true) delete_cart_item(k, div);
+     });
+     ///nút thêm giảm số lượng đã chọn
+     div.querySelector('.cong').addEventListener('click',function(){
+        update_cart_quantity({
+            type: 'cong',
+            parent_dom:div,
+            key:k
+        });
+    });
+      
+  
+    div.querySelector('.tru').addEventListener('click',function(){
+        update_cart_quantity({
+            type: 'tru',
+            parent_dom:div,
+            key:k
+        });
+    });
+     
+     
    }
+    
 }
+
 if(localStorage.getItem('cart_id')){
      let L = JSON.parse(localStorage.getItem('cart_id'));
      render_flower_cart(L)
+     update_total_bill()
+     
+}
+
+/// xóa sản phẩm 
+function delete_cart_item(k, div){
+    delete cart[k] ;
+    div.remove();
+    
+
+ }
+////function của cộng trừ cong
+ function update_cart_quantity(params){
+    let {type, key , parent_dom} = params;
+   if(type == 'cong'){
+    cart[key]['quantity'] += 1;
+    cart[key]['total_price'] = cart[key]['price'] * cart[key]['quantity'];
+    parent_dom.querySelector('.number').innerHTML =  cart[key]['quantity'];
+    parent_dom.querySelector('p').innerHTML = ` ${format_price(cart[key]['total_price'])} VND`;
+   }
+  
+   
+   if(type == 'tru'){
+    cart[key]['quantity'] -= 1;
+    if(parseInt(cart[key]['quantity'])<1){
+        cart[key]['quantity']= 1;
+        alert('Số lượng tối thiểu là 1 sản phẩm');
+    }
+    cart[key]['total_price'] = cart[key]['price'] * cart[key]['quantity'];
+    parent_dom.querySelector('.number').innerHTML =  cart[key]['quantity'];
+    parent_dom.querySelector('p').innerHTML = ` ${format_price(cart[key]['total_price'])} VND`;
+   }
+   update_total_bill();
+}
+
+ function update_total_bill(){
+    let total = 0;
+    /// chạy vòng lặp
+    for (let [k,v] of Object.entries(cart)){
+        total += v.total_price
+    }
+    document.querySelector('.total-bill').innerHTML =`Tổng tiền: ${format_price(total)} VND`;
 }

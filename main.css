@@ -191,7 +191,7 @@ footer a{
     grid-template: auto / repeat(3, 1fr) ;
     gap:10px;
     padding: 10px;
-    background-color: #f4f4f4;
+    background-color: rgb(255, 255, 255);
     max-width: 60%;
     
 }
@@ -212,7 +212,7 @@ footer a{
 .cart-dom .nav-quantity {
     list-style: none;
     display: flex;
-    border: 1px solid gray;
+    margin-bottom: 40px;
     
     background-color: white;
     border-radius: 5px;
@@ -221,7 +221,7 @@ footer a{
 .cart-dom .nav-quantity {
     
     margin: 0 auto;
-    height: 35px;
+    height: 40px;
 }
 .cart-dom .nav-quantity .tru{
     background-color: white;
@@ -229,7 +229,7 @@ footer a{
     font-size: 20px;
     padding: 5px;
     border: 1px solid rgb(201, 197, 197);
-   
+    border-radius: 7px;
 
 }
 .cart-dom .nav-quantity .cong{
@@ -238,12 +238,14 @@ footer a{
     font-size: 20px;
     padding: 5px;
     border: 1px solid rgb(201, 197, 197);
+    border-radius: 7px;
 }
 .cart-dom .nav-quantity span{
-    font-size: 20px;
+    font-size: 25px;
     padding: 5px;
     text-align: center;
-    border: 1px solid rgb(201, 197, 197);
+    padding: 0 10px;
+   
 }
 .text-cart{
     font-size: 25px;
@@ -257,6 +259,10 @@ footer a{
     border-radius: 6px;
     border: 1px solid rgb(170, 167, 167);
     margin-bottom: 25px;
+}
+.delete{
+    font-size: 25px;
+    ;
 }
 @media(min-width: 768px){
     .container{
