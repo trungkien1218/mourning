@@ -119,7 +119,7 @@ async function render_flower_prd(params) {
         };
         // nút thêm giảm số lượng giở hàng
         let number= 1;
-        let span = document.querySelector('span');
+        let span = div.querySelector('span');
         
         
         let truBtn = document.querySelector('.tru');
@@ -188,10 +188,8 @@ async function render_flower_cart(params) {
     let {name, image, quantity, total_price} = v;
 
     let div = document.createElement('div');
-    div.classList.add('cart');
+    div.classList.add('cart-dom');
     div.innerHTML = `
-    
-                <div class="cart-dom">
                     <div class="cart-img" style="background-image:url(${image})"></div>
                     <div class="cart-name-price">
                         <div class="cart-name">${name}</div>
@@ -202,16 +200,13 @@ async function render_flower_cart(params) {
                       
                           <button class="tru" ><i class="fa-solid fa-minus"></i></i></button>
     
-                          <span>${quantity}</span>
+                          <span class="number">${quantity}</span>
             
                           <button class="cong"><i class="fa-solid fa-plus"></i></button>
                           
                           <button class="delete"><i class="fa-solid fa-trash-can" ></i></button>
                       
                    </div>
-                   
-                </div>
-                
             
 
     `;
@@ -269,7 +264,7 @@ function delete_cart_item(k, div){
     cart[key]['quantity'] += 1;
     cart[key]['total_price'] = cart[key]['price'] * cart[key]['quantity'];
     parent_dom.querySelector('.number').innerHTML =  cart[key]['quantity'];
-    parent_dom.querySelector('p').innerHTML = ` ${format_price(cart[key]['total_price'])} VND`;
+    parent_dom.querySelector('.cart-price').innerHTML = ` ${format_price(cart[key]['total_price'])} VND`;
    }
   
    
@@ -281,9 +276,9 @@ function delete_cart_item(k, div){
     }
     cart[key]['total_price'] = cart[key]['price'] * cart[key]['quantity'];
     parent_dom.querySelector('.number').innerHTML =  cart[key]['quantity'];
-    parent_dom.querySelector('p').innerHTML = ` ${format_price(cart[key]['total_price'])} VND`;
+    parent_dom.querySelector('.cart-price').innerHTML = ` ${format_price(cart[key]['total_price'])} VND`;
    }
-   update_total_bill();
+   //update_total_bill();
 }
 
  function update_total_bill(){
@@ -291,6 +286,7 @@ function delete_cart_item(k, div){
     /// chạy vòng lặp
     for (let [k,v] of Object.entries(cart)){
         total += v.total_price
+        if(document.querySelector('.total-bill')){document.querySelector('.total-bill').innerHTML =`Tổng tiền: ${format_price(total)} VND`;}
     }
-    document.querySelector('.total-bill').innerHTML =`Tổng tiền: ${format_price(total)} VND`;
+    
 }
