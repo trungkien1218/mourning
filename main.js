@@ -170,6 +170,7 @@ async function render_flower_prd(params) {
                     quantity : number, ////number này nằm ở phần cộng trừ số lượng sản phẩm
                     name: name,
                     price: price,
+                    image:image,
                     total_price: price //// cái này là tổng số tiền khi mà thêm số lượng là quantity nhân với giá là price 
                 }
             }
@@ -195,11 +196,11 @@ async function render_flower_cart(params) {
     let {name, image, quantity, total_price} = v;
 
     let div = document.createElement('div');
-    div.classList.add('cart-dom');
+    div.classList.add('cart');
     div.innerHTML = `
-    <div class="cart">
+    
                 <div class="cart-dom">
-                    <div class="cart-img">${image}</div>
+                    <div class="cart-img" style="background-image:url(${image})"></div>
                     <div class="cart-name-price">
                         <div class="cart-name">${name}</div>
                         <div class="cart-price">${total_price.toLocaleString('vi-VN')} VND</div>
@@ -216,21 +217,12 @@ async function render_flower_cart(params) {
                       
                    </div>
                 </div>
-                <div>
-                    <p class="text-cart">Người nhận</p>
-                    <input type="text" class="pad-inp">
-                    <p class="text-cart">Số điện thoại </p>
-                    <input type="text" class="pad-inp" >
-                    <p class="text-cart">Địa chỉ nhận hoa</p>
-                    <input type="text" class="pad-inp">
-                </div>
-            </div>
-        </div>
-        
+                
+            
 
     `;
     if( document.querySelector('.cart-page ')){
-        document.querySelector('.cart-page .container').appendChild(div);
+        document.querySelector('.cart-page .container ').appendChild(div);
 
     };
    }

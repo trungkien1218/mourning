@@ -197,10 +197,10 @@ footer a{
 }
 .cart-img{
     padding-top:    100%;
-    background: #f44f4f no-repeat center;
+    border-radius: 12px;
+    background: red no-repeat center;
     background-size: cover;
-    border-radius: 6px;
-    height: 40px;
+
     
     
 }
