@@ -311,11 +311,15 @@ function get_from_storage(key){
 
 
 //thêm sự kiện cho nút thanh toán
-('.buy-end').addEventListener('click', function(){
-    let input_name = document.getElementById("name-client").value;
-    let input_phone = document.getElementById("phone-client").value;
-    let input_note = document.getElementById("note-client").value;
-    let input_address = document.getElementById("address-client").value;
+
+let client_obj = {}
+if(document.querySelector(".buy-end")){
+    
+document.querySelector(".buy-end").addEventListener('click', function(){
+    let input_name = document.querySelector(".name-client").value;
+    let input_phone = document.querySelector(".phone-client").value;
+    let input_note = document.querySelector(".note-client").value;
+    let input_address = document.querySelector(".address-client").value;
     
     let data={
         id:input_name,
@@ -324,28 +328,31 @@ function get_from_storage(key){
         address:input_address
     }
     
+   
     // validate dữ liệu hợp lệ
     
     if(data.id ===""){
-        alert("Điền tên của mày vào");     tên
+        alert("Bạn chưa điền tên");  
         return false;
     }
     
     if(data.number ===""){
-        alert("Điền số điện thoại vào ko có thì t giao hoa cho ai ");
+        alert("Chưa điền số điện thoại.");
         return false;
     }
     if(data.address ===""){
-        alert("Điền số điện thoại vào ko có thì t giao hoa cho ai ");
+        alert("Bạn chưa điền địa chỉ nhận hàng. ");
         return false;
     }
-    client_Arr.push(data);
-    render_client_data(client_Arr);
+    client_obj.push(data);
+    render_client_data(client_obj);
     reset_form();
 
 
-    save_to_Storage("client_data", client_Arr )
+    save_to_Storage("client_data", client_obj )
 });
+
+}
 
 
 
