@@ -212,13 +212,14 @@ async function render_flower_cart(params) {
     `;
     
     if( document.querySelector('.cart-page ')){
-        document.querySelector('.cart-page .container ').appendChild(div);
+        document.querySelector('.cart-page .cart-left ').appendChild(div);
 
     };  
     /// nút xóa những cái mày đã chọn                
     div.querySelector('.delete').addEventListener('click', function(){
         let confirm_delete = confirm(' mày có chắc là muốn xóa ko tk chó?');
         if( confirm_delete == true) delete_cart_item(k, div);
+        localStorage.setItem('cart_id', JSON.stringify(cart));
      });
      ///nút thêm giảm số lượng đã chọn
      div.querySelector('.cong').addEventListener('click',function(){
@@ -227,6 +228,7 @@ async function render_flower_cart(params) {
             parent_dom:div,
             key:k
         });
+        localStorage.setItem('cart_id', JSON.stringify(cart));
     });
       
   
@@ -236,6 +238,7 @@ async function render_flower_cart(params) {
             parent_dom:div,
             key:k
         });
+        localStorage.setItem('cart_id', JSON.stringify(cart));
     });
      
      
@@ -254,7 +257,7 @@ if(localStorage.getItem('cart_id')){
 function delete_cart_item(k, div){
     delete cart[k] ;
     div.remove();
-    
+    update_total_bill();
 
  }
 ////function của cộng trừ cong
@@ -278,7 +281,7 @@ function delete_cart_item(k, div){
     parent_dom.querySelector('.number').innerHTML =  cart[key]['quantity'];
     parent_dom.querySelector('.cart-price').innerHTML = ` ${format_price(cart[key]['total_price'])} VND`;
    }
-   //update_total_bill();
+   update_total_bill();
 }
 
  function update_total_bill(){
@@ -290,3 +293,59 @@ function delete_cart_item(k, div){
     }
     
 }
+
+
+
+// thông tin khách hàng ////////////////////////
+function save_to_Storage(key, value){
+    let data= value;
+    if(Array.isArray(value)){
+        data=JSON.stringify(value);
+    }
+    window.localStorage.setItem(key,value);
+}
+
+function get_from_storage(key){
+    return window.localStorage.getItem(key);
+}
+
+
+//thêm sự kiện cho nút thanh toán
+('.buy-end').addEventListener('click', function(){
+    let input_name = document.getElementById("name-client").value;
+    let input_phone = document.getElementById("phone-client").value;
+    let input_note = document.getElementById("note-client").value;
+    let input_address = document.getElementById("address-client").value;
+    
+    let data={
+        id:input_name,
+        number:input_phone,
+        note:input_note,
+        address:input_address
+    }
+    
+    // validate dữ liệu hợp lệ
+    
+    if(data.id ===""){
+        alert("Điền tên của mày vào");     tên
+        return false;
+    }
+    
+    if(data.number ===""){
+        alert("Điền số điện thoại vào ko có thì t giao hoa cho ai ");
+        return false;
+    }
+    if(data.address ===""){
+        alert("Điền số điện thoại vào ko có thì t giao hoa cho ai ");
+        return false;
+    }
+    client_Arr.push(data);
+    render_client_data(client_Arr);
+    reset_form();
+
+
+    save_to_Storage("client_data", client_Arr )
+});
+
+
+

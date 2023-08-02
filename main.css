@@ -85,7 +85,7 @@ main .image-1{
 .grid{
     display: grid;
     grid-template: auto / repeat(2 , 1fr);
-    grid-gap:50px
+    grid-gap:20px
 }
 .name{
     font-size: 20px;
@@ -184,7 +184,7 @@ footer a{
 .cart{
     display: grid;
     grid-template: auto / repeat(2, 1fr) ;
-    gap:10px;
+    gap:30px;
 }
 .cart-dom{
     display: grid;
@@ -192,7 +192,7 @@ footer a{
     gap:10px;
     padding: 10px;
     background-color: rgb(255, 255, 255);
-    max-width: 60%;
+    max-width: 100%;
     
 }
 .cart-img{
@@ -253,7 +253,26 @@ footer a{
     
 }
 .pad-inp{
-    padding-right:200px ;
+    width: 350px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-radius: 6px;
+    border: 1px solid rgb(170, 167, 167);
+    margin-bottom: 25px;
+}
+.pad-inp-address{
+    width:750px ;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    height: 100px;
+    border-radius: 6px;
+    border: 1px solid rgb(170, 167, 167);
+    margin-bottom: 25px;
+}
+.pad-inp-note{
+    width:750px ;
+    padding-left: 20px;
     padding-bottom: 10px;
     padding-top: 10px;
     border-radius: 6px;
@@ -264,6 +283,34 @@ footer a{
     font-size: 25px;
     ;
 }
+.total-bill{
+    margin-top: 100px;
+    padding: 16px;
+    font-size: 30px;
+}
+.scroll{
+    max-width: 100%;
+    height:700px;
+    overflow-x:hidden;
+    overflow-y:auto;
+}
+.buy-end{
+    background-color: rgb(43, 137, 243);
+    color: white;
+    padding: 20px;
+    margin-top: 50px;
+    width: 400px;
+    font-weight: 600;
+    font-size: 50px;
+    text-align: center;
+    border-radius: 10px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+    
 @media(min-width: 768px){
     .container{
         max-width: 500px;
