@@ -302,17 +302,17 @@ function save_to_Storage(key, value){
     if(Array.isArray(value)){
         data=JSON.stringify(value);
     }
-    window.localStorage.setItem(key,value);
+   localStorage.setItem(key,value);
 }
 
 function get_from_storage(key){
-    return window.localStorage.getItem(key);
+    return localStorage.getItem(key);
 }
 
 
 //thêm sự kiện cho nút thanh toán
 
-let client_obj = {}
+
 if(document.querySelector(".buy-end")){
     
 document.querySelector(".buy-end").addEventListener('click', function(){
@@ -344,15 +344,13 @@ document.querySelector(".buy-end").addEventListener('click', function(){
         alert("Bạn chưa điền địa chỉ nhận hàng. ");
         return false;
     }
-    client_obj.push(data);
-    render_client_data(client_obj);
-    reset_form();
-
-
-    save_to_Storage("client_data", client_obj )
+   
+    client_data.push(data);
+    save_to_Storage("client_data", data)
 });
 
 }
+let client_data=[];
 
 
 
