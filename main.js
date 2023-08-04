@@ -344,9 +344,9 @@ document.querySelector(".buy-end").addEventListener('click', function(){
         alert("Bạn chưa điền địa chỉ nhận hàng. ");
         return false;
     }
-   
+    
     client_data.push(data);
-    save_to_Storage("client_data", data)
+    save_to_Storage("client_data", JSON.stringify(data))
 });
 
 }

@@ -308,8 +308,18 @@ footer a{
     border: none;
     cursor: pointer;
 }
-
-
+/*instagrammmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*/
+.ins-grid{
+    display: grid;
+    grid-template:auto/ repeat(4,1fr);
+    gap: 20px;
+}
+.ins-img{
+    padding-top:    100%;
+    border-radius: 12px;
+    background: #f4f4f4 no-repeat center;
+    background-size: cover;  
+}
     
 @media(min-width: 768px){
     .container{
