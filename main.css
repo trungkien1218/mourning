@@ -321,17 +321,7 @@ footer a{
     transform: translate(-50%, -50%);
     border-radius: 20px;
 }
-.board-0{
-    width: 530px;
-    height: 180px;
-    background-image: url(images\ 222.png);
-    z-index: 11;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 20px;
-}
+
 .board-1{
     max-width: 100%;
     height: 100%;
