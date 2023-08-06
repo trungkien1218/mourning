@@ -217,7 +217,7 @@ async function render_flower_cart(params) {
     };  
     /// nút xóa những cái mày đã chọn                
     div.querySelector('.delete').addEventListener('click', function(){
-        let confirm_delete = confirm(' mày có chắc là muốn xóa ko tk chó?');
+        let confirm_delete = confirm(' Bạn có chắc là muốn xóa');
         if( confirm_delete == true) delete_cart_item(k, div);
         localStorage.setItem('cart_id', JSON.stringify(cart));
      });
@@ -344,13 +344,50 @@ document.querySelector(".buy-end").addEventListener('click', function(){
         alert("Bạn chưa điền địa chỉ nhận hàng. ");
         return false;
     }
-    
+    if(data === true){
+        alert("Bạn đã đặt hàng thành công")
+    }
+  
     client_data.push(data);
-    save_to_Storage("client_data", JSON.stringify(data))
+    save_to_Storage("client_data", JSON.stringify(data));
+    ///render_client(client_data)
 });
 
 }
 let client_data=[];
+/*let board_data = document.querySelector(".bbody");
+async function render_client(params){
+    let {id, total} = params;
 
+        let div = document.createElement('div');
+        div.classList.add('item-prd');
+        div.innerHTML = 
+    board_data.innerHTML=`
+    <div class="board">
+        <div style="font-size: 50px; text-align: center; color: white; font-weight: 800;">Thành công</div>
+        <div style="font-size: 25px; text-align: center; color: white;">Bạn ${id} đã đặt thành công sản phẩm với giá ${format_price(total)} VND. </div>
+      </div>
+      
+      <div class="board-1"></div>
+    `;
+};
+if(document.querySelector(".buy-end-1")){
+    
+    document.querySelector(".buy-end").addEventListener('click', function(){
+        let div = document.createElement('div');
+    div.classList.add('board-main');
+    div.innerHTML = `
+    <div class="board">
+        <div style="font-size: 50px; text-align: center; color: white; font-weight: 800;">Thành công</div>
+        <div style="font-size: 25px; text-align: center; color: white;">Bạn ${id} đã đặt thành công sản phẩm với giá ${format_price(total)} VND. </div>
+      </div>
+      
+      <div class="board-1"></div>
+    `;
+    if( document.querySelector('.cart-page')){
+        document.querySelector('.cart-page').appendChild(div);
 
+    };
+    })}
+*/
 

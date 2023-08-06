@@ -9,12 +9,7 @@
    <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <div class="board">
-        <div style="font-size: 50px; text-align: center; color: white; font-weight: 800;">Thành công</div>
-        <div style="font-size: 25px; text-align: center; color: white;">Bạn ${input_name} đã đặt thành công sản phẩm với giá ${format_price(total)} VND. </div>
-      </div>
-      <div class="board-0"></div>
-      <div class="board-1"></div>
+    <div class="bbody"></div>
     <header>
         <div class="container">
             
@@ -37,7 +32,7 @@
         </div>
 
     </header>
-    <main class="cart-page" >
+    <main class="cart-page" style="background-color: rgb(32, 157, 230, 0.27 ); padding-bottom:200px; padding-top: 50px;" >
         <div class="container"> 
           <div class="cart">
             <div class="cart-left scroll"></div>
@@ -55,9 +50,10 @@
                 <p class="text-cart">Lưu ý của khách hàng</p>
                 <input type="text" class="pad-inp-note note-client">
                 <p class="text-cart">Địa chỉ nhận hàng</p>
-                <input type="text" class="pad-inp-address address-client">
+                <textarea name="" id="" cols="30" rows="10" class="pad-inp-address address-client"></textarea>
                 <div class="total-bill"></div>
-                <button class="buy-end">Thanh toán</button>
+                <button class="buy-end buy-end-1">Thanh toán</button>
+                
             </div>
           </div>  
           
@@ -68,7 +64,7 @@
         
 
     </main>
-        <footer style="background-color: rgb(55, 56, 57); margin-top: 200px; height: 500px;">
+        <footer style="background-color: rgb(55, 56, 57); margin-top: 0px; height: 500px;">
             <section class="grid-1 container" style="color: white; padding-top: 200px;">
                 <div>
                     <P style="font-size: 25px; font-weight: 600;padding-bottom: 40px;">THÔNG TIN SHOP</P>
