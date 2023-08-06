@@ -207,6 +207,7 @@ footer a{
 .cart-name{
     font-size: 20px;
     padding-bottom: 15px;
+    color: rgb(43, 137, 243) ;
 
 }
 .cart-dom .nav-quantity {
@@ -227,30 +228,33 @@ footer a{
     background-color: white;
     border: none;
     font-size: 20px;
-    padding: 5px;
+    padding: 9px;
     border: 1px solid rgb(201, 197, 197);
     border-radius: 7px;
-
+    cursor: pointer;
 }
 .cart-dom .nav-quantity .cong{
     background-color: white;
     border: none;
     font-size: 20px;
-    padding: 5px;
+    padding: 9px;
     border: 1px solid rgb(201, 197, 197);
     border-radius: 7px;
+    cursor: pointer;
 }
 .cart-dom .nav-quantity span{
     font-size: 25px;
     padding: 5px;
     text-align: center;
     padding: 0 10px;
-   
+    color: rgb(43, 137, 243);
+   margin: auto 0;
 }
 .text-cart{
-    font-size: 25px;
+    font-size: 18px;
     font-weight: 500;
-    
+    padding-bottom: 5px;
+    color: rgb(43, 137, 243);
 }
 .cart-right{
     border: 2px solid rgb(43, 137, 243);
@@ -258,7 +262,7 @@ footer a{
     padding: 20px;
 }
 .cart-left{
-   
+    border: 2px solid rgb(43, 137, 243);
     border-radius: 30px;
     padding: 20px;
 }
@@ -268,7 +272,7 @@ footer a{
     padding-bottom: 10px;
     padding-top: 10px;
     border-radius: 6px;
-    border: 1px solid rgb(170, 167, 167);
+    border: 2px solid black;
     margin-bottom: 25px;
 }
 .pad-inp-address{
@@ -277,7 +281,7 @@ footer a{
     padding-bottom: 10px;
     height: 100px;
     border-radius: 6px;
-    border: 1px solid rgb(170, 167, 167);
+    border: 2px solid black;
     margin-bottom: 25px;
 }
 .pad-inp-note{
@@ -286,12 +290,16 @@ footer a{
     padding-bottom: 10px;
     padding-top: 10px;
     border-radius: 6px;
-    border: 1px solid rgb(170, 167, 167);
+    border: 2px solid black;
     margin-bottom: 25px;
 }
 .delete{
     font-size: 25px;
-    ;
+    text-decoration: none;
+    border: none;
+    background-color: white;
+    padding-left: 10px;
+    cursor: pointer;
 }
 .total-bill{
     margin-top: 100px;
