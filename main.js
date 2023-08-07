@@ -5,6 +5,17 @@ const end_point ={
 }
 
 
+////reponsive
+
+
+if(document.querySelector('.nav-trigger')){document.querySelector('.nav-trigger').addEventListener('click', function(){
+     if(document.querySelector('.main-nav')){ 
+        document.querySelector('.main-nav').classList.toggle('show')
+    };
+    
+})};
+
+
 
 let get_flower ={
     api_url: api_url,

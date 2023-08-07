@@ -21,9 +21,25 @@ header{
     padding: 16px 0;
     
 }
+header .main-nav.show{
+    display: block;
+}
+header .main-nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: white;
+    width: 200px;
+    display: none;
+}
+.nav-trigger{
+    display: inline-block;
+}
 header .main-nav ul{
     list-style: none;
     display: flex;
+    flex-direction: column;
 }
 header .main-nav ul li{
     padding-right: 30px;
@@ -43,8 +59,7 @@ header a img {
 
 header{
     padding-top: 40px;
-    padding-bottom: 30px;
-    margin-bottom: 10px;
+    
 }
 nav.main-nav{display: none;}
 
@@ -83,9 +98,7 @@ main .image-1{
 
 }
 .grid{
-    display: grid;
-    grid-template: auto / repeat(2 , 1fr);
-    grid-gap:20px
+   display: block;
 }
 .name{
     font-size: 20px;
@@ -208,6 +221,7 @@ footer a{
     font-size: 20px;
     padding-bottom: 15px;
     color: rgb(43, 137, 243) ;
+    margin: 0 auto 0;
 
 }
 .cart-dom .nav-quantity {
@@ -257,12 +271,12 @@ footer a{
     color: rgb(43, 137, 243);
 }
 .cart-right{
-    border: 2px solid rgb(43, 137, 243);
+    border: 3px solid rgb(43, 137, 243);
     border-radius: 30px;
     padding: 20px;
 }
 .cart-left{
-    border: 2px solid rgb(43, 137, 243);
+    border: 3px solid rgb(43, 137, 243);
     border-radius: 30px;
     padding: 20px;
 }
@@ -272,7 +286,7 @@ footer a{
     padding-bottom: 10px;
     padding-top: 10px;
     border-radius: 6px;
-    border: 2px solid black;
+    border: 1px solid black;
     margin-bottom: 25px;
 }
 .pad-inp-address{
@@ -281,7 +295,7 @@ footer a{
     padding-bottom: 10px;
     height: 100px;
     border-radius: 6px;
-    border: 2px solid black;
+    border: 1px solid black;
     margin-bottom: 25px;
 }
 .pad-inp-note{
@@ -290,7 +304,7 @@ footer a{
     padding-bottom: 10px;
     padding-top: 10px;
     border-radius: 6px;
-    border: 2px solid black;
+    border: 1px solid black;
     margin-bottom: 25px;
 }
 .delete{
@@ -373,6 +387,23 @@ footer a{
     }
     main .image-1{
         background-image: url(images/Group\ 5.jpg);
+    }
+    .grid{
+        display: grid;
+        grid-template: auto / repeat(2 , 1fr);
+        grid-gap:20px
+    }
+    header .main-nav ul{
+        
+        flex-direction:row;
+    }
+    header .main-nav{
+        position: static;
+        width: auto;
+        display: block;
+    }
+    .nav-trigger{
+        display: none;
     }
 }
 @media(min-width:769px){
