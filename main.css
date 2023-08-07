@@ -36,6 +36,13 @@ header .main-nav{
 .nav-trigger{
     display: inline-block;
 }
+.nav-trigger i{
+    text-decoration: none;
+    background-color: white;
+    font-size: 25px;
+    color: rgb(43, 137, 243);
+    border-color: rgb(43, 137, 243);
+}
 header .main-nav ul{
     list-style: none;
     display: flex;
