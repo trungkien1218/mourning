@@ -13,7 +13,7 @@ header .container{
     max-width: 1280px;
     width: 100%;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 7px;
   justify-content: space-between;
     align-items: center;
 }
@@ -84,7 +84,7 @@ main .image-1{
 }
 .sanpham{
     display: grid;
-    grid-template: auto / repeat(4 , 1fr);
+    grid-template: auto / repeat(2, 1fr);
     grid-gap:30px
 }
 .item a{
@@ -422,6 +422,14 @@ footer a{
     }
     .nav-trigger{
         display: none;
+    }
+    .sanpham{
+        display: grid;
+        grid-template: auto / repeat(4 , 1fr);
+        grid-gap:30px
+    }
+    .container{
+        padding: 0 40px;
     }
 }
 @media(min-width:769px){

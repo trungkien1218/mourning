@@ -168,7 +168,7 @@ async function render_flower_prd(params) {
                     name: name,
                     price: price,
                     image:image,
-                    total_price: price //// cái này là tổng số tiền khi mà thêm số lượng là quantity nhân với giá là price 
+                    total_price: price*number //// cái này là tổng số tiền khi mà thêm số lượng là quantity nhân với giá là price 
                 }
             }
             localStorage.setItem('cart_id', JSON.stringify(cart));
