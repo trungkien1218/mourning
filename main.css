@@ -278,14 +278,24 @@ footer a{
     color: rgb(43, 137, 243);
 }
 .cart-right{
-    border: 3px solid rgb(43, 137, 243);
+  background-color: white;
     border-radius: 30px;
     padding: 20px;
 }
 .cart-left{
-    border: 3px solid rgb(43, 137, 243);
+    
     border-radius: 30px;
     padding: 20px;
+}
+.cart-quantity{
+    position: absolute;
+    font-size: 15px;
+    padding: 6px;
+    border-radius: 50%;
+    top: 0;
+    right: 0;
+    color: rgb(43, 137, 243);
+    border: 1px solid rgb(43, 137, 243);
 }
 .pad-inp{
     width:100%;
@@ -299,11 +309,11 @@ footer a{
 .pad-inp-address{
     width:100%;
     padding-left: 20px;
-    padding-bottom: 10px;
+    
     height: 100px;
     border-radius: 6px;
     border: 1px solid black;
-    margin-bottom: 25px;
+    
 }
 .pad-inp-note{
     width:100%;
@@ -323,7 +333,7 @@ footer a{
     cursor: pointer;
 }
 .total-bill{
-    margin-top: 100px;
+    margin-top: 50px;
     padding: 16px;
     font-size: 30px;
 }
@@ -336,16 +346,17 @@ footer a{
 .buy-end{
     background-color: rgb(43, 137, 243);
     color: white;
-    padding: 20px;
-    margin-top: 50px;
-    width: 400px;
-    font-weight: 600;
-    font-size: 50px;
+    padding: 15px;
+    margin-top: 10px;
+ 
+    font-weight: 500;
+    font-size: 35px;
     text-align: center;
     border-radius: 10px;
     text-decoration: none;
     border: none;
     cursor: pointer;
+    
 }
 /*cái này bảng thông báo thành công thanh toán*/
 .board{

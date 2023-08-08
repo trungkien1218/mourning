@@ -154,9 +154,7 @@ async function render_flower_prd(params) {
         
         
         /// lưu vào localstorage
-        div.addEventListener('click', function(){
-            localStorage.setItem('cart_id', id);
-          });
+        
           div.querySelector('.buy').addEventListener('click', function(){
             let key=name;
             if (cart[key]){
@@ -261,6 +259,7 @@ if(localStorage.getItem('cart_id')){
      let L = JSON.parse(localStorage.getItem('cart_id'));
      render_flower_cart(L)
      update_total_bill()
+     update_total_quantity()
      
 }
 
@@ -269,6 +268,7 @@ function delete_cart_item(k, div){
     delete cart[k] ;
     div.remove();
     update_total_bill();
+    update_total_quantity()
 
  }
 ////function của cộng trừ cong
@@ -293,6 +293,7 @@ function delete_cart_item(k, div){
     parent_dom.querySelector('.cart-price').innerHTML = ` ${format_price(cart[key]['total_price'])} VND`;
    }
    update_total_bill();
+   update_total_quantity()
 }
 
  function update_total_bill(){
@@ -303,6 +304,13 @@ function delete_cart_item(k, div){
         if(document.querySelector('.total-bill')){document.querySelector('.total-bill').innerHTML =`Tổng tiền: ${format_price(total)} VND`;}
     }
     
+}
+function update_total_quantity(){
+    let total_quantity=0;
+    for ( let [k,v] of Object.entries(cart)){
+        total_quantity += v.quantity
+        if(document.querySelector('.cart-quantity')){document.querySelector('.cart-quantity').innerHTML= `${total_quantity}`};
+    }
 }
 
 
