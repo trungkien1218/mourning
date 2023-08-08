@@ -21,6 +21,14 @@ header{
     padding: 16px 0;
     
 }
+header .cart-logo{
+    position: fixed;
+    right: 10px;
+    max-width: 100%;
+    border-radius: 25px;
+    border: 1px solid red;
+    bottom: 50px;
+}
 header .main-nav.show{
     display: block;
 }
@@ -294,8 +302,8 @@ footer a{
     border-radius: 50%;
     top: 0;
     right: 0;
-    color: rgb(43, 137, 243);
-    border: 1px solid rgb(43, 137, 243);
+    color: red;
+    
 }
 .pad-inp{
     width:100%;
@@ -431,6 +439,14 @@ footer a{
     .container{
         padding: 0 40px;
     }
+    header .cart-logo{
+    
+    top: 90px;
+    right: 20px;
+    
+    border-radius: 25px;
+    bottom: 345px;
+}
 }
 @media(min-width:769px){
     .container{
