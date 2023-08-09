@@ -36,7 +36,10 @@
         <div class="ins-grid">
             
         </div>
-        
+        <div class="modal" style="display: none;">
+            <div class="overlay"></div>
+            <div class="modal-dialog"></div>
+        </div>
 
 
 
@@ -107,31 +110,8 @@
          div.classList.add('1');
          div.innerHTML=`
          <div class ="ins-img" style="background-image: url(${instagram[i]});"></div>`;
-         document.querySelector('.ins-grid').appendChild(div);
-         
-         document.querySelector('.ins-img').addEventListener('click', function(){
-             let div1=document.createElement('div');
-             
-             
-             div1.classList.add('modal');
-             div1.innerHTML=`
-             
-            <div class="overlay"></div>
-            <div class="modal-dialog" style="background-image: url(${instagram[i]})"></div>
-            <div class="close"><i class="fa-regular fa-circle-xmark" style="font-size:35px;></i></div>
-             `;
-             /*document.querySelector('.close').addEventListener('click', function(){
-                let close= document.querySelector('.close');
-                close.classList.remove('modal')
-             });*/
-            
-             document.querySelector('.container').appendChild(div);
-          })
-         
-        };
-
-        
-        
+         document.querySelector('.ins-grid').appendChild(div)
+        }
         
     </script>
 </body>
