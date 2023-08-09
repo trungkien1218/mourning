@@ -13,7 +13,7 @@ header .container{
     max-width: 1280px;
     width: 100%;
     margin: 0 auto;
-    padding: 0 7px;
+    padding: 0 40px;
   justify-content: space-between;
     align-items: center;
 }
@@ -21,16 +21,6 @@ header{
     padding: 16px 0;
     
 }
-header .cart-logo{
-    position: fixed;
-    right: 10px;
-    max-width: 100%;
-    border-radius: 25px;
-    border: 1px solid red;
-    bottom: 50px;
-    display: block;
-}
-
 header .main-nav.show{
     display: block;
 }
@@ -94,7 +84,7 @@ main .image-1{
 }
 .sanpham{
     display: grid;
-    grid-template: auto / repeat(2, 1fr);
+    grid-template: auto / repeat(4 , 1fr);
     grid-gap:30px
 }
 .item a{
@@ -304,8 +294,8 @@ footer a{
     border-radius: 50%;
     top: 0;
     right: 0;
-    color: red;
-    
+    color: rgb(43, 137, 243);
+    border: 1px solid rgb(43, 137, 243);
 }
 .pad-inp{
     width:100%;
@@ -358,7 +348,6 @@ footer a{
     color: white;
     padding: 15px;
     margin-top: 10px;
- 
     font-weight: 500;
     font-size: 35px;
     text-align: center;
@@ -368,6 +357,7 @@ footer a{
     cursor: pointer;
     
 }
+button 
 /*cái này bảng thông báo thành công thanh toán*/
 .board{
    
@@ -405,15 +395,12 @@ footer a{
     background: #f4f4f4 no-repeat center;
     background-size: cover;  
 }
-.modal{
+.close{
     position: fixed;
-    top: 0;
-    bottom: 0;
+    z-index: 111111;
+    top:0;
     right: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    max-width: 100%;
 }
 .overlay{
     position: fixed;
@@ -421,16 +408,17 @@ footer a{
     bottom: 0;
     right: 0;
     left: 0;
-    background-color: #000;
+    z-index: 11;
+    background: #000;
 }
 .modal-dialog{
-    max-width: 500px;
-    width: 100%;
-    position: relative;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     z-index: 1111;
-}
-.cart-page{
-    display: block;
+
+
 }
 @media(min-width: 768px){
     .container{
@@ -458,27 +446,6 @@ footer a{
     }
     .nav-trigger{
         display: none;
-    }
-    .sanpham{
-        display: grid;
-        grid-template: auto / repeat(4 , 1fr);
-        grid-gap:30px
-    }
-    .container{
-        padding: 0 40px;
-    }
-    header .cart-logo{
-    
-    display: none;
-    }
-    header .cart-logo-1{
-    position: fixed;
-    right: 10px;
-    bottom: 80%;
-    border-radius: 25px;
-    border: 1px solid red;
-    
-    display: block;
     }
 }
 @media(min-width:769px){
