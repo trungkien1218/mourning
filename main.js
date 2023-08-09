@@ -12,7 +12,6 @@ if(document.querySelector('.nav-trigger')){document.querySelector('.nav-trigger'
      if(document.querySelector('.main-nav')){ 
         document.querySelector('.main-nav').classList.toggle('show')
     };
-    
 })};
 
 
