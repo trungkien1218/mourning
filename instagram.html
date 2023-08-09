@@ -34,34 +34,7 @@
     </header>
     <main class="container">
         <div class="ins-grid">
-            <div class="ins-img" style="background-image: url(instagram/1.webp);"></div>
-            <div class="ins-img" style="background-image: url(instagram/2.webp);"></div>
-            <div class="ins-img" style="background-image: url(instagram/3.webp);"></div>
-            <div class="ins-img" style="background-image: url(instagram/5.webp);"></div>
-            <div class="ins-img" style="background-image: url(instagram/6.jpeg);"></div>
-            <div class="ins-img" style="background-image: url(instagram/7.jpeg);"></div>
-            <div class="ins-img" style="background-image: url(instagram/8.webp);"></div>
-            <div class="ins-img" style="background-image: url(instagram/9.webp);"></div>
-            <div class="ins-img" style="background-image: url(instagram/10.webp);"></div>
-            <div class="ins-img" style="background-image: url(instagram/11.webp);"></div>
-            <div class="ins-img" style="background-image: url(instagram/12.webp);"></div>
-            <div class="ins-img" style="background-image: url(instagram/13.webp);"></div>
-            <div class="ins-img" style="background-image: url(instagram/14.webp);"></div>
-            <div class="ins-img" style="background-image: url(instagram/15.jpeg);"></div>
-            <div class="ins-img" style="background-image: url(instagram/16.jpeg);"></div>
-            <div class="ins-img" style="background-image: url(instagram/17.jpeg);"></div>
-            <div class="ins-img" style="background-image: url(instagram/18.webp);"></div>
-            <div class="ins-img" style="background-image: url(instagram/19.webp);"></div>
-            <div class="ins-img" style="background-image: url(instagram/20.webp);"></div>
-            <div class="ins-img" style="background-image: url(instagram/21.webp);"></div>
-            <div class="ins-img" style="background-image: url(instagram/22.webp);"></div>
-            <div class="ins-img" style="background-image: url(instagram/23.webp);"></div>
-            <div class="ins-img" style="background-image: url(instagram/25.webp);"></div>
-            <div class="ins-img" style="background-image: url(instagram/26.jpeg);"></div>
-            <div class="ins-img" style="background-image: url(instagram/27.jpeg);"></div>
-            <div class="ins-img" style="background-image: url(instagram/28.webp);"></div>
-            <div class="ins-img" style="background-image: url(instagram/29.jpeg);"></div>
-            <div class="ins-img" style="background-image: url(instagram/30.webp);"></div>
+            
         </div>
         <div class="modal" style="display: none;">
             <div class="overlay"></div>
@@ -102,5 +75,44 @@
         </section>
     </footer>
     <script src="main.js"></script>
+    <script>
+        let instagram=[
+            'instagram/1.webp',
+            'instagram/2.webp',
+            'instagram/3.webp',
+            'instagram/5.webp',
+            'instagram/6.jpeg',
+            'instagram/7.jpeg',
+            'instagram/8.webp',
+            'instagram/9.webp',
+            'instagram/10.webp',
+            'instagram/11.webp',
+            'instagram/12.webp',
+            'instagram/13.webp',
+            'instagram/14.webp',
+            'instagram/15.jpeg',
+            'instagram/16.jpeg',
+            'instagram/17.jpeg',
+            'instagram/18.webp',
+            'instagram/19.webp',
+            'instagram/20.webp',
+            'instagram/21.webp',
+            'instagram/22.webp',
+            'instagram/23.webp',
+            'instagram/25.webp',
+            'instagram/26.jpeg',
+            'instagram/27.jpeg',
+            'instagram/28.webp',
+            'instagram/29.jpeg',
+            'instagram/30.webp',];
+        for (let i = 0; i<instagram.length; i++){
+         let div = document.createElement('div');
+         div.classList.add('1');
+         div.innerHTML=`
+         <div class ="ins-img" style="background-image: url(${instagram[i]});"></div>`;
+         document.querySelector('.ins-grid').appendChild(div)
+        }
+        
+    </script>
 </body>
 </html>
