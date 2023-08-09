@@ -17,6 +17,8 @@ if(document.querySelector('.nav-trigger')){document.querySelector('.nav-trigger'
 
 
 
+
+
 let get_flower ={
     api_url: api_url,
     end_point: end_point.flower,
@@ -116,7 +118,7 @@ async function render_flower_prd(params) {
                 <div class="prd-name">${name}</div>
                 <div class="prd-price">${price.toLocaleString('vi-VN')} VND</div>
                 
-                <p style="margin-right:20px; padding-bottom: 20px;"> Số lượng:</p>
+                <p style="margin-right:20px; padding-bottom: 20px;"> </p>
                 
                 <button class="tru" style="margin-right:20px;"><i class="fa-solid fa-minus"></i></i></button>
                 <span style="margin-right:20px; font-size: 30px">1</span>
@@ -363,13 +365,13 @@ document.querySelector(".buy-end").addEventListener('click', function(){
         alert("Bạn chưa điền địa chỉ nhận hàng. ");
         return false;
     }
-    if(data === true){
-        alert("Bạn đã đặt hàng thành công")
-    }
   
     client_data.push(data);
     save_to_Storage("client_data", JSON.stringify(data));
     ///render_client(client_data)
+    if(document.querySelector('.board-main')){
+        document.querySelector('.board-main').classList.toggle('show1')}
+        
 });
 
 }
@@ -382,12 +384,11 @@ async function render_client(params){
         div.classList.add('item-prd');
         div.innerHTML = 
     board_data.innerHTML=`
-    <div class="board">
-        <div style="font-size: 50px; text-align: center; color: white; font-weight: 800;">Thành công</div>
-        <div style="font-size: 25px; text-align: center; color: white;">Bạn ${id} đã đặt thành công sản phẩm với giá ${format_price(total)} VND. </div>
-      </div>
-      
-      <div class="board-1"></div>
+    <div style="font-size: 50px; text-align: center; color: white; font-weight: 800;">Thành công</div>
+                    <div style="font-size: 25px; text-align: center; color: white;">Bạn ${id} đã đặt thành công sản phẩm với giá ${format_price(total)} VND. </div>
+                  </div>
+                  
+                  <div class="board-1"></div>
     `;
 };
 if(document.querySelector(".buy-end-1")){
