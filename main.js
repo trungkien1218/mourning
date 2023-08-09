@@ -8,12 +8,17 @@ const end_point ={
 ////reponsive
 
 
-if(document.querySelector('.nav-trigger')){document.querySelector('.nav-trigger').addEventListener('click', function(){
+if(document.querySelector('.nav-trigger')){
+    document.querySelector('.nav-trigger').addEventListener('click', function(){
      if(document.querySelector('.main-nav')){ 
         document.querySelector('.main-nav').classList.toggle('show')
     };
 })};
+/*if(document.querySelector('ins-img')){
+    document.querySelector('ins-img').addEventListener('click', function(){
 
+    })
+}*/
 
 
 
@@ -256,20 +261,20 @@ async function render_flower_cart(params) {
     
 }
 
-if(localStorage.getItem('cart_id')){
-     let L = JSON.parse(localStorage.getItem('cart_id'));
-     render_flower_cart(L)
-     update_total_bill()
-     update_total_quantity()
+
+    
+     render_flower_cart(cart)
+     update_total_bill(cart)
+     update_total_quantity(cart)
      
-}
+
 
 /// xóa sản phẩm 
 function delete_cart_item(k, div){
     delete cart[k] ;
     div.remove();
-    update_total_bill();
-    update_total_quantity()
+    update_total_bill(cart);
+    update_total_quantity(cart)
 
  }
 ////function của cộng trừ cong
@@ -293,25 +298,25 @@ function delete_cart_item(k, div){
     parent_dom.querySelector('.number').innerHTML =  cart[key]['quantity'];
     parent_dom.querySelector('.cart-price').innerHTML = ` ${format_price(cart[key]['total_price'])} VND`;
    }
-   update_total_bill();
-   update_total_quantity()
+   update_total_bill(cart);
+   update_total_quantity(cart)
 }
 
  function update_total_bill(){
     let total = 0;
     /// chạy vòng lặp
     for (let [k,v] of Object.entries(cart)){
-        total += v.total_price
-        if(document.querySelector('.total-bill')){document.querySelector('.total-bill').innerHTML =`Tổng tiền: ${format_price(total)} VND`;}
+        total += v.total_price;
     }
+    if(document.querySelector('.total-bill')){document.querySelector('.total-bill').innerHTML =`Tổng tiền: ${format_price(total)} VND`;}
     
 }
 function update_total_quantity(){
     let total_quantity=0;
     for ( let [k,v] of Object.entries(cart)){
         total_quantity += v.quantity
-        if(document.querySelector('.cart-quantity')){document.querySelector('.cart-quantity').innerHTML= `${total_quantity}`};
     }
+    if(document.querySelector('.cart-quantity')){document.querySelector('.cart-quantity').innerHTML= `${total_quantity}`};
 }
 
 
@@ -374,7 +379,7 @@ document.querySelector(".buy-end").addEventListener('click', function(){
 });
 
 }
-let client_data=[];
+
 /*let board_data = document.querySelector(".bbody");
 async function render_client(params){
     let {id, total} = params;
