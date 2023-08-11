@@ -110,7 +110,11 @@
          <div class ="ins-img" style="background-image: url(${instagram[i]});"></div>`;
          document.querySelector('.ins-grid').appendChild(div);
          
-         let div1=document.createElement('div');
+       
+             document.querySelector('.container .ins-grid').appendChild(div);
+         div.querySelector('.ins-img').addEventListener('click', function(e){
+            console.log(e.currentTarget)
+            let div1=document.createElement('div');
              
              
              div1.classList.add('modal');
@@ -125,9 +129,8 @@
                 close.classList.remove('modal')
              });*/
             
-             document.querySelector('.container .ins-grid').appendChild(div);
-         div.querySelector('.ins-img').addEventListener('click', function(e){
-            console.log(e.currentTarget)});
+        
+        });
         
         };
 

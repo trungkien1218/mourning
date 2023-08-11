@@ -432,6 +432,11 @@ footer a{
 .cart-page{
     display: block;
 }
+.close{
+    top: 20px;
+    right: 20px;
+    position: fixed;
+}
 @media(min-width: 768px){
     .container{
         max-width: 500px;
