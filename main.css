@@ -124,7 +124,7 @@ main .image-1{
 section .img3{
     text-align: center;
     justify-content: center;
-    max-width: 100%;
+   
     align-items: center;
     margin: 0 auto;
 }
@@ -161,15 +161,10 @@ footer a{
 
 
 .item-prd{
-    display: grid;
-    grid-template: auto / repeat(2 , 1fr);
-    grid-gap: 40px;
-    max-width: 70%;
-
-   
+    display: block;
 }
-
 .prd-img{
+    
     padding-top:    100%;
     border-radius: 12px;
     background: #f4f4f4 no-repeat center;
@@ -177,11 +172,16 @@ footer a{
 
 }
 .prd-name{
-    
-    font-size: 30px;
+    color:rgb(43, 137, 243) ;
+    font-size: 50px;
     font-weight: 600;
     padding-bottom: 20px;
+    font-family: 'Dancing Script', cursive;
     
+}
+.font-famy{
+    font-family: 'Allura', cursive;
+
     
 }
 .prd-price{
@@ -223,9 +223,7 @@ footer a{
 /*cartttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt*/
 
 .cart{
-    display: grid;
-    grid-template: auto / repeat(2, 1fr) ;
-    gap:30px;
+   display: block;
 }
 .cart-dom{
     display: grid;
@@ -360,12 +358,7 @@ footer a{
     padding: 16px;
     font-size: 30px;
 }
-.scroll{
-    max-width: 100%;
-    height:700px;
-    overflow-x:hidden;
-    overflow-y:auto;
-}
+
 .buy-end{
     background-color: rgb(43, 137, 243);
     color: white;
@@ -513,6 +506,25 @@ footer a{
     display: grid;
     grid-template:auto /repeat(3, 1fr) ;
     gap: 40px;
+}
+.item-prd{
+    display: grid;
+    grid-template: auto / repeat(2 , 1fr);
+    grid-gap: 40px;
+    max-width: 70%;
+
+   
+}
+.cart{
+    display: grid;
+    grid-template: auto / repeat(2, 1fr) ;
+    gap:30px;
+}
+.scroll{
+    max-width: 100%;
+    height:700px;
+    overflow-x:hidden;
+    overflow-y:auto;
 }
 }
 @media(min-width:769px){

@@ -128,14 +128,15 @@
              div1.innerHTML=`
              
             <div class="overlay"></div>
-            <div class="modal-dialog"> ${JSON.stringify(e)}</div>
+            <div class="modal-dialog"> 
+                <div class ="ins-img" style="background-image: url(${instagram[i]});"></div>;
+                </div>
             <div class="close"><i class="fa-regular fa-circle-xmark" style="font-size:35px; color:white"></i></div>
              `;
-             document.body.appendChild(div1)
-             /*document.querySelector('.close').addEventListener('click', function(){
-                let close= document.querySelector('.close');
-                close.classList.remove('modal')
-             });*/
+             document.body.appendChild(div1);
+             div1.querySelector('.close').addEventListener('click', function(){
+                div1.remove();
+             });
             
         
         });
