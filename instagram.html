@@ -112,8 +112,15 @@
          
        
              document.querySelector('.container .ins-grid').appendChild(div);
+             
          div.querySelector('.ins-img').addEventListener('click', function(e){
+            
+            
             console.log(e.currentTarget)
+            /// bấm vào đc cái này
+            ////<div class="ins-img" style="background-image: url(instagram/1.webp);"></div>
+            
+
             let div1=document.createElement('div');
              
              
@@ -121,9 +128,10 @@
              div1.innerHTML=`
              
             <div class="overlay"></div>
-            <div class="modal-dialog" style="background-image: url(${instagram[i]})"></div>
-            <div class="close"><i class="fa-regular fa-circle-xmark" style="font-size:35px;></i></div>
+            <div class="modal-dialog"> ${JSON.stringify(e)}</div>
+            <div class="close"><i class="fa-regular fa-circle-xmark" style="font-size:35px; color:white"></i></div>
              `;
+             document.body.appendChild(div1)
              /*document.querySelector('.close').addEventListener('click', function(){
                 let close= document.querySelector('.close');
                 close.classList.remove('modal')

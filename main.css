@@ -61,9 +61,13 @@ header .main-nav ul{
 header .main-nav ul li{
     padding-right: 30px;
     padding-left: 30px;
-    padding-top: 10px;
+    padding-top: 30px;
     padding-bottom: 10px;
     border-radius: 5px;
+}
+header .main-nav ul li :hover {
+    
+    color:  rgb(43, 137, 243);
 }
 header a{
     text-decoration: none;
@@ -116,6 +120,13 @@ main .image-1{
 }
 .grid{
    display: block;
+}
+section .img3{
+    text-align: center;
+    justify-content: center;
+    max-width: 100%;
+    align-items: center;
+    margin: 0 auto;
 }
 .name{
     font-size: 20px;
@@ -206,7 +217,7 @@ footer a{
 }
 .prd-page{
     display: grid;
-    grid-template:auto /repeat(3, 1fr) ;
+    grid-template:auto /repeat(2, 1fr) ;
     gap: 40px;
 }
 /*cartttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt*/
@@ -312,6 +323,7 @@ footer a{
     padding-left: 20px;
     padding-bottom: 10px;
     padding-top: 10px;
+    padding-right: 10px;
     border-radius: 6px;
     border: 1px solid black;
     margin-bottom: 25px;
@@ -319,15 +331,16 @@ footer a{
 .pad-inp-address{
     width:100%;
     padding-left: 20px;
-    
+    padding-right: 20px;
     height: 100px;
     border-radius: 6px;
     border: 1px solid black;
-    
+    resize: vertical;
 }
 .pad-inp-note{
     width:100%;
     padding-left: 20px;
+    padding-right: 20px;
     padding-bottom: 10px;
     padding-top: 10px;
     border-radius: 6px;
@@ -396,7 +409,7 @@ footer a{
 /*instagrammmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm*/
 .ins-grid{
     display: grid;
-    grid-template:auto/ repeat(4,1fr);
+    grid-template:auto/ repeat(2,1fr);
     gap: 20px;
 }
 .ins-img{
@@ -436,6 +449,7 @@ footer a{
     top: 20px;
     right: 20px;
     position: fixed;
+    max-width: 100%;
 }
 @media(min-width: 768px){
     .container{
@@ -455,6 +469,10 @@ footer a{
     header .main-nav ul{
         
         flex-direction:row;
+    }
+    header .main-nav ul li:hover{
+        color: rgb(43, 137, 243);
+       
     }
     header .main-nav{
         position: static;
@@ -485,6 +503,17 @@ footer a{
     
     display: block;
     }
+    .ins-grid{
+    display: grid;
+    grid-template:auto/ repeat(4,1fr);
+    gap: 20px;
+    
+}
+.prd-page{
+    display: grid;
+    grid-template:auto /repeat(3, 1fr) ;
+    gap: 40px;
+}
 }
 @media(min-width:769px){
     .container{
