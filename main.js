@@ -8,17 +8,13 @@ const end_point ={
 ////reponsive
 
 
-if(document.querySelector('.nav-trigger')){
-    document.querySelector('.nav-trigger').addEventListener('click', function(){
+if(document.querySelector('.nav-trigger')){document.querySelector('.nav-trigger').addEventListener('click', function(){
      if(document.querySelector('.main-nav')){ 
         document.querySelector('.main-nav').classList.toggle('show')
     };
+    
 })};
-/*if(document.querySelector('ins-img')){
-    document.querySelector('ins-img').addEventListener('click', function(){
 
-    })
-}*/
 
 
 
@@ -36,7 +32,7 @@ async function render_flower(params) {
     
     params.map(function(flower, index){
         
-        let {name, price, image, id} = flower;
+        let {name, price, image, id, sit} = flower;
         let div = document.createElement('div');
         div.classList.add('item');
         div.innerHTML = `
@@ -56,7 +52,13 @@ async function render_flower(params) {
         
         if( document.querySelector('.product-page ')){
             document.querySelector('.product-page .prd-page').appendChild(div);
-        }
+        };
+        let small =document.querySelector('.small');
+        let big = document.querySelector('.big');
+        
+
+
+        
       
         div.addEventListener('click', function(){
             localStorage.setItem('prd_id', id);
@@ -261,20 +263,20 @@ async function render_flower_cart(params) {
     
 }
 
-
-    
-     render_flower_cart(cart)
-     update_total_bill(cart)
-     update_total_quantity(cart)
+if(localStorage.getItem('cart_id')){
+     let L = JSON.parse(localStorage.getItem('cart_id'));
+     render_flower_cart(L)
+     update_total_bill()
+     update_total_quantity()
      
-
+}
 
 /// xóa sản phẩm 
 function delete_cart_item(k, div){
     delete cart[k] ;
     div.remove();
-    update_total_bill(cart);
-    update_total_quantity(cart)
+    update_total_bill();
+    update_total_quantity()
 
  }
 ////function của cộng trừ cong
@@ -298,25 +300,25 @@ function delete_cart_item(k, div){
     parent_dom.querySelector('.number').innerHTML =  cart[key]['quantity'];
     parent_dom.querySelector('.cart-price').innerHTML = ` ${format_price(cart[key]['total_price'])} VND`;
    }
-   update_total_bill(cart);
-   update_total_quantity(cart)
+   update_total_bill();
+   update_total_quantity()
 }
 
  function update_total_bill(){
     let total = 0;
     /// chạy vòng lặp
     for (let [k,v] of Object.entries(cart)){
-        total += v.total_price;
+        total += v.total_price
+        if(document.querySelector('.total-bill')){document.querySelector('.total-bill').innerHTML =`Tổng tiền: ${format_price(total)} VND`;}
     }
-    if(document.querySelector('.total-bill')){document.querySelector('.total-bill').innerHTML =`Tổng tiền: ${format_price(total)} VND`;}
     
 }
 function update_total_quantity(){
     let total_quantity=0;
     for ( let [k,v] of Object.entries(cart)){
         total_quantity += v.quantity
+        if(document.querySelector('.cart-quantity')){document.querySelector('.cart-quantity').innerHTML= `${total_quantity}`};
     }
-    if(document.querySelector('.cart-quantity')){document.querySelector('.cart-quantity').innerHTML= `${total_quantity}`};
 }
 
 
@@ -339,7 +341,6 @@ function get_from_storage(key){
 
 
 if(document.querySelector(".buy-end")){
-    
 document.querySelector(".buy-end").addEventListener('click', function(){
     let input_name = document.querySelector(".name-client").value;
     let input_phone = document.querySelector(".phone-client").value;
@@ -352,8 +353,6 @@ document.querySelector(".buy-end").addEventListener('click', function(){
         note:input_note,
         address:input_address
     }
-    
-   
     // validate dữ liệu hợp lệ
     
     if(data.id ===""){
@@ -373,13 +372,14 @@ document.querySelector(".buy-end").addEventListener('click', function(){
     client_data.push(data);
     save_to_Storage("client_data", JSON.stringify(data));
     ///render_client(client_data)
+   
     if(document.querySelector('.board-main')){
         document.querySelector('.board-main').classList.toggle('show1')}
         
 });
 
 }
-
+let client_data=[];
 /*let board_data = document.querySelector(".bbody");
 async function render_client(params){
     let {id, total} = params;
