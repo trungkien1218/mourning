@@ -147,6 +147,12 @@ async function render_flower_prd(params) {
                 number = number - 1;
                 span.innerHTML = number;
             
+                if(number < 1){
+                    number = 1;
+                    alert('Số lượng sản phẩm đã đạt tối thiểu')
+                    
+                }
+                
             });
         }
        
@@ -159,6 +165,8 @@ async function render_flower_prd(params) {
             
             });
         }
+        
+
         
         
         /// lưu vào localstorage
