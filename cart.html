@@ -1,109 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lam Flower</title>
     <link rel="icon" type="image/x-icon" href="l-high-resolution-logo-color-on-transparent-background.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-   <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="main.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto:wght@300&family=Tilt+Prism&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
 
     <header>
         <div class="container">
-            
-                 
-                <a href="index.html" style="display: block; max-width: 250px;"><img src="favicon.png" alt="" style="max-width: 40%;"></a>
-            
+
+
+            <a href="index.html" style="display: block; max-width: 250px;"><img src="favicon.png" alt=""
+                    style="max-width: 40%;"></a>
+
             <nav class="main-nav">
                 <ul>
-                    <li ><a href="index.html" >Trang chủ</a></li>
+                    <li><a href="index.html">Trang chủ</a></li>
 
-                    <li><a href="product.html" >Sản phẩm</a></li>
-     
+                    <li><a href="product.html">Sản phẩm</a></li>
+
                     <li><a href="instagram.html">Instagram </a></li>
 
                     <li></li>
                 </ul>
             </nav>
-            <a href="cart.html" class="cart-logo cart-logo-1" ><i class="fa-solid fa-cart-shopping" style="position: relative; padding: 20px; font-size: 25px; color: red;"> <p class="cart-quantity">0</p></i></a>
+            <a href="cart.html" class="cart-logo cart-logo-1"><i class="fa-solid fa-cart-shopping"
+                    style="position: relative; padding: 20px; font-size: 25px; color: red;">
+                    <p class="cart-quantity">0</p>
+                </i></a>
             <button class="btn nav-trigger"><i class="fa-solid fa-bars"></i></button>
         </div>
 
     </header>
-    <main class="cart-page" style=" padding-bottom:200px; padding-top: 50px;background-color: #f4f4f4;" >
-        <div class="container"> 
-          <div class="cart">
-            <div class="cart-left scroll"></div>
-            <div class="cart-right">
-                <div class="grid">
-                    <div>
-                        <p class="text-cart">Họ và tên<span style="color: red;">*</span> </p>
-                        <input type="text" class="pad-inp name-client">
+    <main class="cart-page" style=" padding-bottom:200px; padding-top: 50px;background-color: #f4f4f4;">
+        <div class="container">
+            <p
+                style="font-size: 60px;font-family: 'Dancing Script', cursive; padding: 20px; align-items: center;text-align: center;">
+                Giỏ hàng </p>
+            <div class="cart">
+                <div class="cart-left scroll"></div>
+                <div class="cart-right">
+                    <div class="grid">
+                        <div>
+                            <p class="text-cart">Họ và tên<span style="color: red;">*</span> </p>
+                            <input type="text" class="pad-inp name-client">
+                        </div>
+                        <div>
+                            <p class="text-cart">Số điện thoại<span style="color: red;">*</span></p>
+                            <input type="text" class="pad-inp phone-client">
+                        </div>
                     </div>
-                    <div>
-                        <p class="text-cart">Số điện thoại<span style="color: red;">*</span></p>
-                        <input type="text" class="pad-inp phone-client">
-                    </div>
-                </div>
-                <p class="text-cart">Lưu ý của khách hàng </p>
-                <input type="text" class="pad-inp-note note-client">
-                <p class="text-cart">Địa chỉ nhận hàng<span style="color: red;">*</span></p>
-                <textarea name="" id="" cols="30" rows="10" class="pad-inp-address address-client"></textarea>
-                <div class="total-bill"></div>
-                <button class="buy-end buy-end-1">Thanh toán</button>
-                
-            </div>
-          </div>  
-          
-            </div>
-            <div class="board-main" style="display: none;">
-                <div class="board">
-                    <div style="font-size: 50px; text-align: center; color: white; font-weight: 800;">Thành công</div>
-                    <div style="font-size: 25px; text-align: center; color: white;">Bạn ${id} đã đặt thành công sản phẩm với giá ${format_price(total)} VND. </div>
-                  </div>
-                  
-                  
-               
-            </div>
-          
-                 
+                    <p class="text-cart">Lưu ý của khách hàng </p>
+                    <input type="text" class="pad-inp-note note-client">
+                    <p class="text-cart">Địa chỉ nhận hàng<span style="color: red;">*</span></p>
+                    <textarea name="" id="" cols="30" rows="10" class="pad-inp-address address-client"></textarea>
+                    <div class="total-bill"></div>
+                    <button class="buy-end buy-end-1">Thanh toán</button>
 
-        
+                </div>
+            </div>
+
+        </div>
+        <div class="board-main" style="display: none;">
+            <div class="board">
+                <div style="font-size: 50px; text-align: center; color: white; font-weight: 800;">Thành công</div>
+                <div style="font-size: 25px; text-align: center; color: white;">Bạn ${id} đã đặt thành công sản phẩm với
+                    giá ${format_price(total)} VND. </div>
+            </div>
+
+
+
+        </div>
+
+
+
+
 
     </main>
-        <footer style="background-color: rgb(55, 56, 57); margin-top: 0px; height: 500px;">
-            <section class="grid-1 container" style="color: white; padding-top: 200px;">
-                <div>
-                    <P style="font-size: 25px; font-weight: 600;padding-bottom: 40px;">THÔNG TIN SHOP</P>
-                    <div class="info">
+    <footer style="background-color: rgb(55, 56, 57); margin-top: 0px; height: 500px;">
+        <section class="grid-1 container" style="color: white; padding-top: 200px;">
+            <div>
+                <P style="font-size: 25px; font-weight: 600;padding-bottom: 40px;">THÔNG TIN SHOP</P>
+                <div class="info">
                     <p class="color-gray">Lam Flower</p>
                     <p class="color-gray">Chi nhánh HN: số 780 Thái Hà, Hai Bà Trưng, Hà Nội</p>
                     <p class="color-gray">Hotline: 0963121221</p>
                     <p class="color-gray">Email: Flower@gmail.com</p>
-                    </div>
                 </div>
-                <div style="display: block;">
-                    <p style="font-size: 25px; font-weight: 600;padding-bottom: 40px;"><a href="#">CHÍNH SÁCH</a></p>
-                    
-                        <div class="cs">
-                            <p><a href="#" class="color-gray">Chính sách mua hàng</a></p>
-                            <p><a href="#" class="color-gray">Chính sách thanh toán</a></p>
-                            <p><a href="#" class="color-gray">Chính sách vận chuyển</a></p>
-                            <p><a href="#" class="color-gray">Chính sách đổi trả</a></p>
-                    
-    
-                        </div>
+            </div>
+            <div style="display: block;">
+                <p style="font-size: 25px; font-weight: 600;padding-bottom: 40px;"><a href="#">CHÍNH SÁCH</a></p>
+
+                <div class="cs">
+                    <p><a href="#" class="color-gray">Chính sách mua hàng</a></p>
+                    <p><a href="#" class="color-gray">Chính sách thanh toán</a></p>
+                    <p><a href="#" class="color-gray">Chính sách vận chuyển</a></p>
+                    <p><a href="#" class="color-gray">Chính sách đổi trả</a></p>
+
+
                 </div>
-                <div class="fb">
-                   <a href="#"> <i class="fa-brands fa-square-facebook" style="font-size: 50px;"></i></a>
-                   <a href="#"> <i class="fa-brands fa-instagram" style="font-size: 50px;"></i></a>
-                </div>
-            </section>
-        </footer>
-    
+            </div>
+            <div class="fb">
+                <p style="font-size: 15px;padding-bottom: 40px;"><a href="#">Lam Flower sẽ luôn bên bạn mọi thắc mắc
+                        liên hệ Facebook hoặc Instagram</a></p>
+                <a href="#"> <i class="fa-brands fa-square-facebook" style="font-size: 50px;"></i></a>
+                <a href="#"> <i class="fa-brands fa-instagram" style="font-size: 50px;"></i></a>
+            </div>
+        </section>
+    </footer>
+
     <script src="main.js"></script>
 </body>
+
 </html>

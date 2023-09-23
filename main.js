@@ -45,7 +45,7 @@ async function render_flower(params) {
         <p class="price">${price.toLocaleString('vi-VN')} VND</p>
     
         `; 
-        if(index <8){
+        if(index <12){
             if( document.querySelector('.home-page ')){
             document.querySelector('.home-page .sanpham').appendChild(div);
         }}
@@ -137,7 +137,7 @@ async function render_flower_prd(params) {
 
         };
         // nút thêm giảm số lượng giở hàng
-        let number= 1;
+        let number =1;
         let span = div.querySelector('span');
         
         
@@ -149,7 +149,7 @@ async function render_flower_prd(params) {
             
                 if(number < 1){
                     number = 1;
-                    alert('Số lượng sản phẩm đã đạt tối thiểu')
+                   
                     
                 }
                 
