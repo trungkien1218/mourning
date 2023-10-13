@@ -123,7 +123,7 @@ async function render_flower_prd(params) {
             <div class="prd-name-price">
                 <div class="prd-name">${name}</div>
                 <div class="prd-price">${price.toLocaleString('vi-VN')} VND</div>
-                
+                <div class="prd-price" style="font-size:15px"> Xuất xứ: Hoa được nhập khẩu trực tiệp tại Đà Lạt và các tỉnh vùng núi phía đem lại cho bạn những bó hoa tuyệt vời nhất.</div>
                 <p style="margin-right:20px; padding-bottom: 20px;"> </p>
                 
                 <button class="tru" style="margin-right:20px;"><i class="fa-solid fa-minus"></i></i></button>
