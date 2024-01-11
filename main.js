@@ -1,38 +1,40 @@
 const api_url = 'https://6487093ebeba6297278fbab7.mockapi.io/';
 
-const end_point ={
-    flower:'flower'
+const end_point = {
+    flower: 'flower'
 }
 
 
 ////reponsive
 
 
-if(document.querySelector('.nav-trigger')){document.querySelector('.nav-trigger').addEventListener('click', function(){
-     if(document.querySelector('.main-nav')){ 
-        document.querySelector('.main-nav').classList.toggle('show')
-    };
-    
-})};
+if (document.querySelector('.nav-trigger')) {
+    document.querySelector('.nav-trigger').addEventListener('click', function () {
+        if (document.querySelector('.main-nav')) {
+            document.querySelector('.main-nav').classList.toggle('show')
+        };
+
+    })
+};
 
 
 
 
 
-let get_flower ={
+let get_flower = {
     api_url: api_url,
     end_point: end_point.flower,
     method: 'GET',
-     async callback(params){
+    async callback(params) {
         await render_flower(params)
-   
+
     }
-} 
+}
 async function render_flower(params) {
-    
-    params.map(function(flower, index){
-        
-        let {name, price, image, id, sit} = flower;
+
+    params.map(function (flower, index) {
+
+        let { name, price, image, id, sit } = flower;
         let div = document.createElement('div');
         div.classList.add('item');
         div.innerHTML = `
@@ -44,44 +46,45 @@ async function render_flower(params) {
         </a>
         <p class="price">${price.toLocaleString('vi-VN')} VND</p>
     
-        `; 
-        if(index <12){
-            if( document.querySelector('.home-page ')){
-            document.querySelector('.home-page .sanpham').appendChild(div);
-        }}
-        
-        if( document.querySelector('.product-page ')){
+        `;
+        if (index < 12) {
+            if (document.querySelector('.home-page ')) {
+                document.querySelector('.home-page .sanpham').appendChild(div);
+            }
+        }
+
+        if (document.querySelector('.product-page ')) {
             document.querySelector('.product-page .prd-page').appendChild(div);
         };
-        let small =document.querySelector('.small');
+        let small = document.querySelector('.small');
         let big = document.querySelector('.big');
-        
 
 
-        
-      
-        div.addEventListener('click', function(){
+
+
+
+        div.addEventListener('click', function () {
             localStorage.setItem('prd_id', id);
-          })
+        })
     })
-    }
+}
 
 
- async function fetch_data(params){
-    if (!params){
+async function fetch_data(params) {
+    if (!params) {
         alert('Không tồn tại request');
         return false;
     }
-    let {api_url, end_point, method, callback} = params;
-    try{
+    let { api_url, end_point, method, callback } = params;
+    try {
         let res = await fetch(api_url + end_point, {
             method: method
         });
-        
+
         let data = await res.json();
         await callback(data)
     }
-    catch(error) {
+    catch (error) {
         console.log(error)
     }
 }
@@ -92,29 +95,29 @@ fetch_data(get_flower);
 ///chi tiết sản phẩm
 
 
-let prd_id= '';
+let prd_id = '';
 if (localStorage.getItem('prd_id')) prd_id = localStorage.getItem('prd_id');
 
-let get_flower_by_id ={
+let get_flower_by_id = {
     api_url: api_url,
-    end_point: end_point. flower +'/'+ localStorage.getItem('prd_id'),
+    end_point: end_point.flower + '/' + localStorage.getItem('prd_id'),
     method: 'GET',
-     async callback(params){
+    async callback(params) {
         await render_flower_prd(params)
-   
+
     }
-} 
+}
 
 
 
 
 async function render_flower_prd(params) {
-    
-        let {name, price, image} = params;
 
-        let div = document.createElement('div');
-        div.classList.add('item-prd');
-        div.innerHTML = `
+    let { name, price, image } = params;
+
+    let div = document.createElement('div');
+    div.classList.add('item-prd');
+    div.innerHTML = `
         
         
         
@@ -132,63 +135,63 @@ async function render_flower_prd(params) {
                 <div><a href="cart.html"><button class="buy">Mua hàng</button></a></div>
             </div>
         `;
-        if( document.querySelector('.product-detail ')){
-            document.querySelector('.product-detail .container').appendChild(div);
+    if (document.querySelector('.product-detail ')) {
+        document.querySelector('.product-detail .container').appendChild(div);
 
-        };
-        // nút thêm giảm số lượng giở hàng
-        let number =1;
-        let span = div.querySelector('span');
-        
-        
-        let truBtn = document.querySelector('.tru');
-        if(truBtn){
-            truBtn.addEventListener('click', function(){
-                number = number - 1;
-                span.innerHTML = number;
-            
-                if(number < 1){
-                    number = 1;
-                   
-                    
-                }
-                
-            });
-        }
-       
-        
-        let congBtn = document.querySelector('.cong');
-        if(congBtn){
-            congBtn.addEventListener('click', function(){
-                number = number + 1;
-                span.innerHTML = number;
-            
-            });
-        }
-        
+    };
+    // nút thêm giảm số lượng giở hàng
+    let number = 1;
+    let span = div.querySelector('span');
 
-        
-        
-        /// lưu vào localstorage
-        
-          div.querySelector('.buy').addEventListener('click', function(){
-            let key=name;
-            if (cart[key]){
-                cart[key].quantity += number;
-                cart[key].total_price = cart[key].quantity * cart[key].price;//// cái này là tính tồng tiền của một sản phẩm khi thêm số lượng
+
+    let truBtn = document.querySelector('.tru');
+    if (truBtn) {
+        truBtn.addEventListener('click', function () {
+            number = number - 1;
+            span.innerHTML = number;
+
+            if (number < 1) {
+                number = 1;
+
+
             }
-            ///chỗ này gọi tên cho mấy tk cart[key] để lưu vào localstorage
-            else{
-                cart[key] = {
-                    quantity : number, ////number này nằm ở phần cộng trừ số lượng sản phẩm
-                    name: name,
-                    price: price,
-                    image:image,
-                    total_price: price*number //// cái này là tổng số tiền khi mà thêm số lượng là quantity nhân với giá là price 
-                }
+
+        });
+    }
+
+
+    let congBtn = document.querySelector('.cong');
+    if (congBtn) {
+        congBtn.addEventListener('click', function () {
+            number = number + 1;
+            span.innerHTML = number;
+
+        });
+    }
+
+
+
+
+    /// lưu vào localstorage
+
+    div.querySelector('.buy').addEventListener('click', function () {
+        let key = name;
+        if (cart[key]) {
+            cart[key].quantity += number;
+            cart[key].total_price = cart[key].quantity * cart[key].price;//// cái này là tính tồng tiền của một sản phẩm khi thêm số lượng
+        }
+        ///chỗ này gọi tên cho mấy tk cart[key] để lưu vào localstorage
+        else {
+            cart[key] = {
+                quantity: number, ////number này nằm ở phần cộng trừ số lượng sản phẩm
+                name: name,
+                price: price,
+                image: image,
+                total_price: price * number //// cái này là tổng số tiền khi mà thêm số lượng là quantity nhân với giá là price 
             }
-            localStorage.setItem('cart_id', JSON.stringify(cart));
-          });
+        }
+        localStorage.setItem('cart_id', JSON.stringify(cart));
+    });
 
 }
 fetch_data(get_flower_by_id);
@@ -197,24 +200,24 @@ fetch_data(get_flower_by_id);
 
 
 /// cart-page/////////////////////////////////////////////////////////////////////////////////////////////
-let cart={};
- /// function chuyển định dạng tiền .
- function format_price(price){
+let cart = {};
+/// function chuyển định dạng tiền .
+function format_price(price) {
     return price.toLocaleString('vi-VN');
 }
 
-if(localStorage.getItem('cart_id')) cart = JSON.parse(localStorage.getItem('cart_id'));
+if (localStorage.getItem('cart_id')) cart = JSON.parse(localStorage.getItem('cart_id'));
 
 
 
 async function render_flower_cart(params) {
-    
-   for(let [k,v] of Object.entries(params)){
-    let {name, image, quantity, total_price} = v;
 
-    let div = document.createElement('div');
-    div.classList.add('cart-dom');
-    div.innerHTML = `
+    for (let [k, v] of Object.entries(params)) {
+        let { name, image, quantity, total_price } = v;
+
+        let div = document.createElement('div');
+        div.classList.add('cart-dom');
+        div.innerHTML = `
                     <div class="cart-img" style="background-image:url(${image})"></div>
                     <div class="cart-name-price">
                         <div class="cart-name">${name}</div>
@@ -235,112 +238,112 @@ async function render_flower_cart(params) {
             
 
     `;
-    
-    if( document.querySelector('.cart-page ')){
-        document.querySelector('.cart-page .cart-left ').appendChild(div);
 
-    };  
-    /// nút xóa những cái mày đã chọn                
-    div.querySelector('.delete').addEventListener('click', function(){
-        let confirm_delete = confirm(' Bạn có chắc là muốn xóa');
-        if( confirm_delete == true) delete_cart_item(k, div);
-        localStorage.setItem('cart_id', JSON.stringify(cart));
-     });
-     ///nút thêm giảm số lượng đã chọn
-     div.querySelector('.cong').addEventListener('click',function(){
-        update_cart_quantity({
-            type: 'cong',
-            parent_dom:div,
-            key:k
+        if (document.querySelector('.cart-page ')) {
+            document.querySelector('.cart-page .cart-left ').appendChild(div);
+
+        };
+        /// nút xóa những cái mày đã chọn                
+        div.querySelector('.delete').addEventListener('click', function () {
+            let confirm_delete = confirm(' Bạn có chắc là muốn xóa');
+            if (confirm_delete == true) delete_cart_item(k, div);
+            localStorage.setItem('cart_id', JSON.stringify(cart));
         });
-        localStorage.setItem('cart_id', JSON.stringify(cart));
-    });
-      
-  
-    div.querySelector('.tru').addEventListener('click',function(){
-        update_cart_quantity({
-            type: 'tru',
-            parent_dom:div,
-            key:k
+        ///nút thêm giảm số lượng đã chọn
+        div.querySelector('.cong').addEventListener('click', function () {
+            update_cart_quantity({
+                type: 'cong',
+                parent_dom: div,
+                key: k
+            });
+            localStorage.setItem('cart_id', JSON.stringify(cart));
         });
-        localStorage.setItem('cart_id', JSON.stringify(cart));
-    });
-     
-     
-   }
-    
+
+
+        div.querySelector('.tru').addEventListener('click', function () {
+            update_cart_quantity({
+                type: 'tru',
+                parent_dom: div,
+                key: k
+            });
+            localStorage.setItem('cart_id', JSON.stringify(cart));
+        });
+
+
+    }
+
 }
 
-if(localStorage.getItem('cart_id')){
-     let L = JSON.parse(localStorage.getItem('cart_id'));
-     render_flower_cart(L)
-     update_total_bill()
-     update_total_quantity()
-     
+if (localStorage.getItem('cart_id')) {
+    let L = JSON.parse(localStorage.getItem('cart_id'));
+    render_flower_cart(L)
+    update_total_bill()
+    update_total_quantity()
+
 }
 
 /// xóa sản phẩm 
-function delete_cart_item(k, div){
-    delete cart[k] ;
+function delete_cart_item(k, div) {
+    delete cart[k];
     div.remove();
     update_total_bill();
     update_total_quantity()
 
- }
+}
 ////function của cộng trừ cong
- function update_cart_quantity(params){
-    let {type, key , parent_dom} = params;
-   if(type == 'cong'){
-    cart[key]['quantity'] += 1;
-    cart[key]['total_price'] = cart[key]['price'] * cart[key]['quantity'];
-    parent_dom.querySelector('.number').innerHTML =  cart[key]['quantity'];
-    parent_dom.querySelector('.cart-price').innerHTML = ` ${format_price(cart[key]['total_price'])} VND`;
-   }
-  
-   
-   if(type == 'tru'){
-    cart[key]['quantity'] -= 1;
-    if(parseInt(cart[key]['quantity'])<1){
-        cart[key]['quantity']= 1;
-        alert('Số lượng tối thiểu là 1 sản phẩm');
+function update_cart_quantity(params) {
+    let { type, key, parent_dom } = params;
+    if (type == 'cong') {
+        cart[key]['quantity'] += 1;
+        cart[key]['total_price'] = cart[key]['price'] * cart[key]['quantity'];
+        parent_dom.querySelector('.number').innerHTML = cart[key]['quantity'];
+        parent_dom.querySelector('.cart-price').innerHTML = ` ${format_price(cart[key]['total_price'])} VND`;
     }
-    cart[key]['total_price'] = cart[key]['price'] * cart[key]['quantity'];
-    parent_dom.querySelector('.number').innerHTML =  cart[key]['quantity'];
-    parent_dom.querySelector('.cart-price').innerHTML = ` ${format_price(cart[key]['total_price'])} VND`;
-   }
-   update_total_bill();
-   update_total_quantity()
+
+
+    if (type == 'tru') {
+        cart[key]['quantity'] -= 1;
+        if (parseInt(cart[key]['quantity']) < 1) {
+            cart[key]['quantity'] = 1;
+            alert('Số lượng tối thiểu là 1 sản phẩm');
+        }
+        cart[key]['total_price'] = cart[key]['price'] * cart[key]['quantity'];
+        parent_dom.querySelector('.number').innerHTML = cart[key]['quantity'];
+        parent_dom.querySelector('.cart-price').innerHTML = ` ${format_price(cart[key]['total_price'])} VND`;
+    }
+    update_total_bill();
+    update_total_quantity()
 }
 
- function update_total_bill(){
+function update_total_bill() {
     let total = 0;
     /// chạy vòng lặp
-    for (let [k,v] of Object.entries(cart)){
+    for (let [k, v] of Object.entries(cart)) {
         total += v.total_price
-        if(document.querySelector('.total-bill')){document.querySelector('.total-bill').innerHTML =`Tổng tiền: ${format_price(total)} VND`;}
+        if (document.querySelector('.total-bill')) { document.querySelector('.total-bill').innerHTML = `Tổng tiền: ${format_price(total)} VND`; }
     }
-    
+
 }
-function update_total_quantity(){
-    let total_quantity=0;
-    for ( let [k,v] of Object.entries(cart)){
+function update_total_quantity() {
+    let total_quantity = 0;
+    for (let [k, v] of Object.entries(cart)) {
         total_quantity += v.quantity
-        if(document.querySelector('.cart-quantity')){document.querySelector('.cart-quantity').innerHTML= `${total_quantity}`};
+        if (document.querySelector('.cart-quantity')) { document.querySelector('.cart-quantity').innerHTML = `${total_quantity}` };
     }
 }
 
 
 
 // thông tin khách hàng ////////////////////////
-function save_to_Storage(key, value){
-    let data= value;
-    if(Array.isArray(value)){
-        data=JSON.stringify(value);
+function save_to_Storage(key, value) {
+    let data = value;
+    if (Array.isArray(value)) {
+        data = JSON.stringify(value);
     }
-   localStorage.setItem(key,value);
+    localStorage.setItem(key, value);
 }
 
-function get_from_storage(key){
+function get_from_storage(key) {
     return localStorage.getItem(key);
 }
 
@@ -348,46 +351,47 @@ function get_from_storage(key){
 //thêm sự kiện cho nút thanh toán
 
 
-if(document.querySelector(".buy-end")){
-document.querySelector(".buy-end").addEventListener('click', function(){
-    let input_name = document.querySelector(".name-client").value;
-    let input_phone = document.querySelector(".phone-client").value;
-    let input_note = document.querySelector(".note-client").value;
-    let input_address = document.querySelector(".address-client").value;
-    
-    let data={
-        id:input_name,
-        number:input_phone,
-        note:input_note,
-        address:input_address
-    }
-    // validate dữ liệu hợp lệ
-    
-    if(data.id ===""){
-        alert("Bạn chưa điền tên");  
-        return false;
-    }
-    
-    if(data.number ===""){
-        alert("Chưa điền số điện thoại.");
-        return false;
-    }
-    if(data.address ===""){
-        alert("Bạn chưa điền địa chỉ nhận hàng. ");
-        return false;
-    }
-  
-    client_data.push(data);
-    save_to_Storage("client_data", JSON.stringify(data));
-    ///render_client(client_data)
-   
-    if(document.querySelector('.board-main')){
-        document.querySelector('.board-main').classList.toggle('show1')}
-        
-});
+if (document.querySelector(".buy-end")) {
+    document.querySelector(".buy-end").addEventListener('click', function () {
+        let input_name = document.querySelector(".name-client").value;
+        let input_phone = document.querySelector(".phone-client").value;
+        let input_note = document.querySelector(".note-client").value;
+        let input_address = document.querySelector(".address-client").value;
+
+        let data = {
+            id: input_name,
+            number: input_phone,
+            note: input_note,
+            address: input_address
+        }
+        // validate dữ liệu hợp lệ
+
+        if (data.id === "") {
+            alert("Bạn chưa điền tên");
+            return false;
+        }
+
+        if (data.number === "") {
+            alert("Chưa điền số điện thoại.");
+            return false;
+        }
+        if (data.address === "") {
+            alert("Bạn chưa điền địa chỉ nhận hàng. ");
+            return false;
+        }
+
+        client_data.push(data);
+        save_to_Storage("client_data", JSON.stringify(data));
+        ///render_client(client_data)
+
+        if (document.querySelector('.board-main')) {
+            document.querySelector('.board-main').classList.toggle('show1')
+        }
+
+    });
 
 }
-let client_data=[];
+let client_data = [];
 /*let board_data = document.querySelector(".bbody");
 async function render_client(params){
     let {id, total} = params;
